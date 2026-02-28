@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnwtk0pymiult"]
+
+[ext_resource type="PackedScene" uid="uid://c0dqnaspoewdi" path="res://assets/kitchenAssets/gltf/bowl.gltf" id="1_5w6ed"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="bowl2" parent="." instance=ExtResource("1_5w6ed")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)

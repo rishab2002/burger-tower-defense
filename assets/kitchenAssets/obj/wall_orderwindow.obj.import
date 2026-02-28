@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dnvp28d3lgd28"
+path="res://.godot/imported/wall_orderwindow.obj-15f10cf95c6675e7f9f11d593f6ae827.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall_orderwindow.obj-15f10cf95c6675e7f9f11d593f6ae827.mesh"]
+
+source_file="res://assets/kitchenAssets/obj/wall_orderwindow.obj"
+dest_files=["res://.godot/imported/wall_orderwindow.obj-15f10cf95c6675e7f9f11d593f6ae827.mesh", "res://.godot/imported/wall_orderwindow.obj-15f10cf95c6675e7f9f11d593f6ae827.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

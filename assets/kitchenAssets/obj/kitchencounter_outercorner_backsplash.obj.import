@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b5yc4f0jo3klw"
+path="res://.godot/imported/kitchencounter_outercorner_backsplash.obj-407217061efc739ee423f07ed6d9b0dc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/kitchencounter_outercorner_backsplash.obj-407217061efc739ee423f07ed6d9b0dc.mesh"]
+
+source_file="res://assets/kitchenAssets/obj/kitchencounter_outercorner_backsplash.obj"
+dest_files=["res://.godot/imported/kitchencounter_outercorner_backsplash.obj-407217061efc739ee423f07ed6d9b0dc.mesh", "res://.godot/imported/kitchencounter_outercorner_backsplash.obj-407217061efc739ee423f07ed6d9b0dc.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

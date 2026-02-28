@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dwbm5albba6gj"
+path="res://.godot/imported/jar_C_small.obj-848f4a30b7a10170b19dd4bf9c992e42.mesh"
+
+[deps]
+
+files=["res://.godot/imported/jar_C_small.obj-848f4a30b7a10170b19dd4bf9c992e42.mesh"]
+
+source_file="res://assets/kitchenAssets/obj/jar_C_small.obj"
+dest_files=["res://.godot/imported/jar_C_small.obj-848f4a30b7a10170b19dd4bf9c992e42.mesh", "res://.godot/imported/jar_C_small.obj-848f4a30b7a10170b19dd4bf9c992e42.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
