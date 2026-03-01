@@ -22,3 +22,8 @@ window/size/mode=2
 [dotnet]
 
 project/assembly_name="BurgerDefense"
+
+[rendering]
+
+lights_and_shadows/directional_shadow/size=8192
+anti_aliasing/quality/screen_space_aa=1
