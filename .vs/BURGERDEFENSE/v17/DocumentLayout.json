@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scenes\\Kitchen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:scenes\\Kitchen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3BF9D8AD-F620-4064-9784-75C69B3BC992}|BurgerDefense.csproj|c:\\users\\bertram\\documents\\documents\\burger-defense\\scenes\\kitchen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BF9D8AD-F620-4064-9784-75C69B3BC992}|BurgerDefense.csproj|solutionrelative:scenes\\kitchen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BF9D8AD-F620-4064-9784-75C69B3BC992}|BurgerDefense.csproj|c:\\users\\bertram\\documents\\documents\\burger-defense\\scripts\\pathfollow3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "scenes\\Kitchen.cs",
               "ToolTip": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scenes\\Kitchen.cs",
               "RelativeToolTip": "scenes\\Kitchen.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwBkAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAwwFsAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-18T00:28:44.43Z",
               "EditorCaption": ""
@@ -59,8 +59,7 @@
               "RelativeToolTip": "scripts\\PathFollow3d.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-28T20:58:29.86Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-28T20:58:29.86Z"
             }
           ]
         }
