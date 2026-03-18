@@ -1,7 +1,194 @@
-[gd_scene load_steps=2 format=3 uid="uid://ur3tqvv7wswv"]
+[gd_scene load_steps=18 format=3 uid="uid://ur3tqvv7wswv"]
 
 [ext_resource type="PackedScene" uid="uid://fa6dpk7yxn2c" path="res://scenes/kitchen.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://bxhwyv0ldhvmq" path="res://scenes/Kitchen.cs" id="2_sugp2"]
+[ext_resource type="Material" uid="uid://cpxu3js8br25q" path="res://materials/blue_highlight.tres" id="3_jyhfs"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tbgi4"]
+material = ExtResource("3_jyhfs")
+size = Vector2(18, 2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tefeu"]
+material = ExtResource("3_jyhfs")
+size = Vector2(16, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sugp2"]
+material = ExtResource("3_jyhfs")
+size = Vector2(10, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_o6xl0"]
+material = ExtResource("3_jyhfs")
+size = Vector2(4, 17)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tipki"]
+material = ExtResource("3_jyhfs")
+size = Vector2(2, 11)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jyhfs"]
+material = ExtResource("3_jyhfs")
+size = Vector2(4, 7)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_85g3d"]
+material = ExtResource("3_jyhfs")
+size = Vector2(6, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_choun"]
+material = ExtResource("3_jyhfs")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ya4ey"]
+material = ExtResource("3_jyhfs")
+size = Vector2(2, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5qli"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.7601443, 0.56249607, 0.1446689, 1)
+
+[sub_resource type="Theme" id="Theme_0wfyh"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_o5qli")
+
+[sub_resource type="Theme" id="Theme_o5qli"]
+HBoxContainer/constants/separation = 12
+
+[sub_resource type="Theme" id="Theme_sugp2"]
+VBoxContainer/constants/separation = 10
+
+[sub_resource type="Theme" id="Theme_jyhfs"]
+Label/font_sizes/font_size = 28
 
 [node name="Node3D" type="Node3D"]
 
 [node name="KitchenRoot" parent="." instance=ExtResource("1_o5qli")]
+unique_name_in_owner = true
+script = ExtResource("2_sugp2")
+
+[node name="FloorHighlight" type="Node3D" parent="KitchenRoot"]
+unique_name_in_owner = true
+visible = false
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="KitchenRoot/FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.51, 3)
+mesh = SubResource("PlaneMesh_tbgi4")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="KitchenRoot/FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.51, 4.5)
+mesh = SubResource("PlaneMesh_tefeu")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="KitchenRoot/FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.51, 7.5)
+mesh = SubResource("PlaneMesh_sugp2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="KitchenRoot/FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.51, 13.5)
+mesh = SubResource("PlaneMesh_o6xl0")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="KitchenRoot/FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.51, 16.5)
+mesh = SubResource("PlaneMesh_tipki")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="KitchenRoot/FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.51, 14.5)
+mesh = SubResource("PlaneMesh_jyhfs")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="KitchenRoot/FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.51, 12)
+mesh = SubResource("PlaneMesh_85g3d")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="KitchenRoot/FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0.51, 13)
+mesh = SubResource("PlaneMesh_choun")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="KitchenRoot/FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.51, 8)
+mesh = SubResource("PlaneMesh_choun")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="KitchenRoot/FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0.51, 8)
+mesh = SubResource("PlaneMesh_ya4ey")
+skeleton = NodePath("../..")
+
+[node name="Top Menu" type="PanelContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme = SubResource("Theme_0wfyh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Top Menu"]
+layout_mode = 2
+theme = SubResource("Theme_o5qli")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Top Menu/HBoxContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Top Menu/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Top Menu/HBoxContainer/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = SubResource("Theme_sugp2")
+
+[node name="Label" type="Label" parent="Top Menu/HBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_jyhfs")
+text = "$ xxxx"
+
+[node name="Label3" type="Label" parent="Top Menu/HBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_jyhfs")
+text = "Round X"
+
+[node name="Button" type="Button" parent="Top Menu/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "START"
+
+[node name="Control" type="Control" parent="Top Menu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Top Menu/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="SilverwaveButton" type="Button" parent="Top Menu/HBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Silverware
+Dispenser"
+
+[node name="IceButton" type="Button" parent="Top Menu/HBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Ice
+Machine"
+
+[node name="StoveButton" type="Button" parent="Top Menu/HBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Stove"
+
+[node name="SinkButton" type="Button" parent="Top Menu/HBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Garbage
+Disposal"
+
+[node name="ChefButton" type="Button" parent="Top Menu/HBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Chef"
+
+[connection signal="pressed" from="Top Menu/HBoxContainer/HBoxContainer2/SilverwaveButton" to="KitchenRoot" method="onSilverwareButtonPressed"]
