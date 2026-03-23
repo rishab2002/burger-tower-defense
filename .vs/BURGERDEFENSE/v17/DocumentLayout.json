@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3BF9D8AD-F620-4064-9784-75C69B3BC992}|BurgerDefense.csproj|c:\\users\\bertram\\documents\\documents\\burger-defense\\scripts\\pathfollow3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BF9D8AD-F620-4064-9784-75C69B3BC992}|BurgerDefense.csproj|solutionrelative:scripts\\pathfollow3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3BF9D8AD-F620-4064-9784-75C69B3BC992}|BurgerDefense.csproj|c:\\users\\bertram\\documents\\documents\\burger-defense\\scenes\\kitchen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BF9D8AD-F620-4064-9784-75C69B3BC992}|BurgerDefense.csproj|solutionrelative:scenes\\kitchen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BF9D8AD-F620-4064-9784-75C69B3BC992}|BurgerDefense.csproj|c:\\users\\bertram\\documents\\documents\\burger-defense\\scripts\\floorhighlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BF9D8AD-F620-4064-9784-75C69B3BC992}|BurgerDefense.csproj|solutionrelative:scripts\\floorhighlight.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3BF9D8AD-F620-4064-9784-75C69B3BC992}|BurgerDefense.csproj|c:\\users\\bertram\\documents\\documents\\burger-defense\\scripts\\meshinstance3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3BF9D8AD-F620-4064-9784-75C69B3BC992}|BurgerDefense.csproj|solutionrelative:scripts\\meshinstance3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BF9D8AD-F620-4064-9784-75C69B3BC992}|BurgerDefense.csproj|c:\\users\\bertram\\documents\\documents\\burger-defense\\scripts\\pathfollow3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BF9D8AD-F620-4064-9784-75C69B3BC992}|BurgerDefense.csproj|solutionrelative:scripts\\pathfollow3d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,19 +31,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "FloorHighlight.cs",
+              "DocumentMoniker": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\FloorHighlight.cs",
+              "RelativeDocumentMoniker": "scripts\\FloorHighlight.cs",
+              "ToolTip": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\FloorHighlight.cs",
+              "RelativeToolTip": "scripts\\FloorHighlight.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAuwAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-19T22:53:55.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Kitchen.cs",
+              "DocumentMoniker": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scenes\\Kitchen.cs",
+              "RelativeDocumentMoniker": "scenes\\Kitchen.cs",
+              "ToolTip": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scenes\\Kitchen.cs",
+              "RelativeToolTip": "scenes\\Kitchen.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwBYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T00:28:44.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MeshInstance3d.cs",
               "DocumentMoniker": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\MeshInstance3d.cs",
               "RelativeDocumentMoniker": "scripts\\MeshInstance3d.cs",
               "ToolTip": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\MeshInstance3d.cs",
               "RelativeToolTip": "scripts\\MeshInstance3d.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAowBYAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwBYAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-01T21:37:32.067Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "PathFollow3d.cs",
               "DocumentMoniker": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\PathFollow3d.cs",
               "RelativeDocumentMoniker": "scripts\\PathFollow3d.cs",
