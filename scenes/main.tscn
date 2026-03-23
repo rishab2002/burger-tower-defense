@@ -1,9 +1,35 @@
-[gd_scene load_steps=34 format=3 uid="uid://ur3tqvv7wswv"]
+[gd_scene load_steps=45 format=3 uid="uid://ur3tqvv7wswv"]
 
+[ext_resource type="Script" uid="uid://s24xph0flbb4" path="res://scenes/GameController.cs" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://fa6dpk7yxn2c" path="res://scenes/kitchen.tscn" id="1_o5qli"]
-[ext_resource type="Script" uid="uid://bxhwyv0ldhvmq" path="res://scenes/Kitchen.cs" id="2_sugp2"]
 [ext_resource type="Material" uid="uid://cpxu3js8br25q" path="res://materials/blue_highlight.tres" id="3_jyhfs"]
 [ext_resource type="Script" uid="uid://chwgnadrbw1wf" path="res://scripts/FloorHighlight.cs" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://68p4m1yglhu7" path="res://scripts/PathFollow3d.cs" id="5_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://deltl7uat2fka" path="res://scenes/lettuce.tscn" id="6_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://c0crt7drkues5" path="res://scenes/cheese.tscn" id="7_trceg"]
+[ext_resource type="PackedScene" uid="uid://bia8v4qycxwr7" path="res://scenes/top_bun.tscn" id="8_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://c8phhuv116mqa" path="res://scenes/tomato.tscn" id="9_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://bqba06tt6sq3r" path="res://scenes/patty.tscn" id="10_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://brwe257nnffsv" path="res://scenes/bottom_bum.tscn" id="11_muem4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5qli"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.7601443, 0.56249607, 0.1446689, 1)
+
+[sub_resource type="Theme" id="Theme_0wfyh"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_o5qli")
+
+[sub_resource type="Theme" id="Theme_o5qli"]
+HBoxContainer/constants/separation = 12
+
+[sub_resource type="Theme" id="Theme_sugp2"]
+VBoxContainer/constants/separation = 10
+
+[sub_resource type="Theme" id="Theme_jyhfs"]
+Label/font_sizes/font_size = 28
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tbgi4"]
 material = ExtResource("3_jyhfs")
@@ -97,164 +123,29 @@ size = Vector2(2, 4)
 [sub_resource type="PlaneMesh" id="PlaneMesh_2wyq8"]
 material = ExtResource("3_jyhfs")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5qli"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0.7601443, 0.56249607, 0.1446689, 1)
+[sub_resource type="Curve3D" id="Curve3D_dp3eg"]
+bake_interval = 5.37
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.20000005, -1.5, 0, 0, 0, 0, 0, 0, 0, 0.1, 1.5, 0, 0, 0, 0, 0, 0, 16.5, 0, 2, 0, 0, 0, 0, 0, 0, 17, 0, 4.5, 0, 0, 0, 0, 0, 0, 15.5, 0, 5.5, 0, 0, 0, 0, 0, 0, 13.5, 0, 6.5, 0, 0, 0, 0, 0, 0, 3.5, 0, 7, 0, 0, 0, 0, 0, 0, 3, 0, 10, 0, 0, 0, 0, 0, 0, 6.5, 0, 10.5, 0, 0, 0, 0, 0, 0, 8, 0, 9.5, 0, 0, 0, 0, 0, 0, 14, 0, 9.5, 0, 0, 0, 0, 0, 0, 15.5, 0, 11.5, 0, 0, 0, 0, 0, 0, 17, 0, 13, 0, 0, 0, 0, 0, 0, 16.5, 0, 15, 0, 0, 0, 0, 0, 0, 9, 0, 15.5, 0, 0, 0, 0, 0, 0, 9, 0, 19.5, 0, 0, 0, 0, 0, 0, 5, 0, 19.5, 0, 0, 0, 0, 0, 0, 5, 0, 23.5, 0, 0, 0, 0, 0, 0, 0.5, 0.20000005, 23.5, 0, 0, 0, 0, 0, 0, 0, 0, 27),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 20
 
-[sub_resource type="Theme" id="Theme_0wfyh"]
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_o5qli")
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_ya4ey"]
 
-[sub_resource type="Theme" id="Theme_o5qli"]
-HBoxContainer/constants/separation = 12
+[sub_resource type="Sky" id="Sky_mnhhk"]
+sky_material = SubResource("PhysicalSkyMaterial_ya4ey")
 
-[sub_resource type="Theme" id="Theme_sugp2"]
-VBoxContainer/constants/separation = 10
+[sub_resource type="Environment" id="Environment_eb6dy"]
+background_mode = 2
+sky = SubResource("Sky_mnhhk")
+tonemap_mode = 3
 
-[sub_resource type="Theme" id="Theme_jyhfs"]
-Label/font_sizes/font_size = 28
-
-[node name="Root" type="Node3D"]
+[node name="GameController" type="Node3D"]
+script = ExtResource("1_eb6dy")
 
 [node name="Kitchen" parent="." instance=ExtResource("1_o5qli")]
 unique_name_in_owner = true
-script = ExtResource("2_sugp2")
-
-[node name="FloorHighlight" type="Node3D" parent="Kitchen"]
-unique_name_in_owner = true
-visible = false
-script = ExtResource("3_tbgi4")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Kitchen/FloorHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.51, 3)
-mesh = SubResource("PlaneMesh_tbgi4")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Kitchen/FloorHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.51, 4.5)
-mesh = SubResource("PlaneMesh_tefeu")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="Kitchen/FloorHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.51, 7.5)
-mesh = SubResource("PlaneMesh_sugp2")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Kitchen/FloorHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.51, 13.5)
-mesh = SubResource("PlaneMesh_o6xl0")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="Kitchen/FloorHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.51, 16.5)
-mesh = SubResource("PlaneMesh_tipki")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="Kitchen/FloorHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.51, 14.5)
-mesh = SubResource("PlaneMesh_jyhfs")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="Kitchen/FloorHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.51, 12)
-mesh = SubResource("PlaneMesh_85g3d")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="Kitchen/FloorHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0.51, 13)
-mesh = SubResource("PlaneMesh_choun")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="Kitchen/FloorHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.51, 8)
-mesh = SubResource("PlaneMesh_choun")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="Kitchen/FloorHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0.51, 8)
-mesh = SubResource("PlaneMesh_ya4ey")
-skeleton = NodePath("../..")
-
-[node name="CounterHighlight" type="Node3D" parent="Kitchen"]
-unique_name_in_owner = true
-visible = false
-
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="Kitchen/CounterHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1.51, 1)
-mesh = SubResource("PlaneMesh_eb6dy")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D13" type="MeshInstance3D" parent="Kitchen/CounterHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1.51, 4)
-mesh = SubResource("PlaneMesh_trceg")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D14" type="MeshInstance3D" parent="Kitchen/CounterHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1.51, 5.5)
-mesh = SubResource("PlaneMesh_a8y0u")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D15" type="MeshInstance3D" parent="Kitchen/CounterHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.51, 6)
-mesh = SubResource("PlaneMesh_jkv2x")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D16" type="MeshInstance3D" parent="Kitchen/CounterHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.51, 8)
-mesh = SubResource("PlaneMesh_jbj1t")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D17" type="MeshInstance3D" parent="Kitchen/CounterHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.51, 10)
-mesh = SubResource("PlaneMesh_muem4")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D18" type="MeshInstance3D" parent="Kitchen/CounterHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.51, 9.5)
-mesh = SubResource("PlaneMesh_dp3eg")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D19" type="MeshInstance3D" parent="Kitchen/CounterHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.51, 9)
-mesh = SubResource("PlaneMesh_0ld40")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D20" type="MeshInstance3D" parent="Kitchen/CounterHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1.51, 11)
-mesh = SubResource("PlaneMesh_gqmmt")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D21" type="MeshInstance3D" parent="Kitchen/CounterHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1.51, 13)
-mesh = SubResource("PlaneMesh_yc10j")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D22" type="MeshInstance3D" parent="Kitchen/CounterHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.51, 15)
-mesh = SubResource("PlaneMesh_jscy8")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D23" type="MeshInstance3D" parent="Kitchen/CounterHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1.51, 18)
-mesh = SubResource("PlaneMesh_pm3ni")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D24" type="MeshInstance3D" parent="Kitchen/CounterHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.51, 19)
-mesh = SubResource("PlaneMesh_y6deb")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D25" type="MeshInstance3D" parent="Kitchen/CounterHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.51, 22)
-mesh = SubResource("PlaneMesh_og1vs")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D26" type="MeshInstance3D" parent="Kitchen/CounterHighlight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.51, 23)
-mesh = SubResource("PlaneMesh_2wyq8")
-skeleton = NodePath("../..")
 
 [node name="Viewport" type="Control" parent="."]
 layout_mode = 3
@@ -344,10 +235,214 @@ custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "Chef"
 
-[connection signal="gui_input" from="Viewport" to="Kitchen" method="OnViewPortGuiInput"]
-[connection signal="gui_input" from="Viewport/Top Menu" to="Kitchen" method="onTopMenuGuiInput"]
-[connection signal="pressed" from="Viewport/Top Menu/HBoxContainer/HBoxContainer2/SilverwaveButton" to="Kitchen" method="onSilverwareButtonPressed"]
-[connection signal="pressed" from="Viewport/Top Menu/HBoxContainer/HBoxContainer2/IceButton" to="Kitchen" method="onIceButtonPressed"]
-[connection signal="pressed" from="Viewport/Top Menu/HBoxContainer/HBoxContainer2/StoveButton" to="Kitchen" method="onStoveButtonPressed"]
-[connection signal="pressed" from="Viewport/Top Menu/HBoxContainer/HBoxContainer2/SinkButton" to="Kitchen" method="onSinkButtonPressed"]
-[connection signal="pressed" from="Viewport/Top Menu/HBoxContainer/HBoxContainer2/ChefButton" to="Kitchen" method="onChefButtonPressed"]
+[node name="FloorHighlight" type="Node3D" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("3_tbgi4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.51, 3)
+mesh = SubResource("PlaneMesh_tbgi4")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.51, 4.5)
+mesh = SubResource("PlaneMesh_tefeu")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.51, 7.5)
+mesh = SubResource("PlaneMesh_sugp2")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.51, 13.5)
+mesh = SubResource("PlaneMesh_o6xl0")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.51, 16.5)
+mesh = SubResource("PlaneMesh_tipki")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.51, 14.5)
+mesh = SubResource("PlaneMesh_jyhfs")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0.51, 12)
+mesh = SubResource("PlaneMesh_85g3d")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0.51, 13)
+mesh = SubResource("PlaneMesh_choun")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.51, 8)
+mesh = SubResource("PlaneMesh_choun")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="FloorHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0.51, 8)
+mesh = SubResource("PlaneMesh_ya4ey")
+skeleton = NodePath("../../Kitchen")
+
+[node name="CounterHighlight" type="Node3D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="CounterHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1.51, 1)
+mesh = SubResource("PlaneMesh_eb6dy")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="CounterHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1.51, 4)
+mesh = SubResource("PlaneMesh_trceg")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="CounterHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1.51, 5.5)
+mesh = SubResource("PlaneMesh_a8y0u")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="CounterHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.51, 6)
+mesh = SubResource("PlaneMesh_jkv2x")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="CounterHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.51, 8)
+mesh = SubResource("PlaneMesh_jbj1t")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="CounterHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.51, 10)
+mesh = SubResource("PlaneMesh_muem4")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="CounterHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.51, 9.5)
+mesh = SubResource("PlaneMesh_dp3eg")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="CounterHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.51, 9)
+mesh = SubResource("PlaneMesh_0ld40")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="CounterHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 1.51, 11)
+mesh = SubResource("PlaneMesh_gqmmt")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="CounterHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1.51, 13)
+mesh = SubResource("PlaneMesh_yc10j")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="CounterHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 1.51, 15)
+mesh = SubResource("PlaneMesh_jscy8")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="CounterHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1.51, 18)
+mesh = SubResource("PlaneMesh_pm3ni")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="CounterHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.51, 19)
+mesh = SubResource("PlaneMesh_y6deb")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="CounterHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.51, 22)
+mesh = SubResource("PlaneMesh_og1vs")
+skeleton = NodePath("../../Kitchen")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="CounterHighlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.51, 23)
+mesh = SubResource("PlaneMesh_2wyq8")
+skeleton = NodePath("../../Kitchen")
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.6, -0.5)
+curve = SubResource("Curve3D_dp3eg")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-1, 2.9124672e-09, -8.7373984e-08, 0, 0.99944186, 0.033314742, 8.742278e-08, 0.033314742, -0.99944186, 0, 0.20000005, -1.5)
+script = ExtResource("5_ya4ey")
+
+[node name="Lettuce" parent="Path3D/PathFollow3D" instance=ExtResource("6_eb6dy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="PathFollow3D7" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.030498086, 0.0048937285, -0.9994966, -0.03818991, 0.99924654, 0.006057551, 0.9988032, 0.038356286, -0.030287644, 3.848642, 0.07667489, 1.6166255)
+progress = 6.8799996
+script = ExtResource("5_ya4ey")
+
+[node name="PathFollow3D2" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.030497966, 0.0048937304, -0.9994966, -0.038189914, 0.99924654, 0.006057549, 0.9988032, 0.03835629, -0.030287525, 10.776129, 0.034690127, 1.8265494)
+progress = 13.759999
+script = ExtResource("5_ya4ey")
+
+[node name="Cheese" parent="Path3D/PathFollow3D2" instance=ExtResource("7_trceg")]
+
+[node name="PathFollow3D3" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.33907178, -0.011324292, 0.9406883, -0.033379003, 0.99944234, 4.7190123e-09, -0.9401633, -0.03139948, -0.33926114, 12.298074, 0, 6.625617)
+progress = 27.519999
+script = ExtResource("5_ya4ey")
+
+[node name="TopBun" parent="Path3D/PathFollow3D3" instance=ExtResource("8_a8y0u")]
+
+[node name="PathFollow3D4" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.70032084, -0.023388982, -0.71343356, -0.033378873, 0.99942744, -8.03371e-10, 0.7130358, 0.02381363, -0.70071155, 5.0603204, 0, 10.528368)
+progress = 41.28
+script = ExtResource("5_ya4ey")
+
+[node name="Tomato" parent="Path3D/PathFollow3D4" instance=ExtResource("9_jkv2x")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="PathFollow3D5" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.7100739, -0.023715084, -0.70371526, -0.033378858, 0.99944264, 6.449107e-11, 0.70332307, 0.02348962, -0.71046984, 16.980942, 0, 12.941927)
+progress = 55.039997
+script = ExtResource("5_ya4ey")
+
+[node name="Patty" parent="Path3D/PathFollow3D5" instance=ExtResource("10_jbj1t")]
+
+[node name="PathFollow3D6" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.9985006, -0.03334777, 0.043339275, -0.033379044, 0.99944234, 4.1525425e-10, -0.043315127, -0.0014466316, -0.9990572, 8.940315, 0, 19.550713)
+progress = 68.8
+script = ExtResource("5_ya4ey")
+
+[node name="BottomBum" parent="Path3D/PathFollow3D6" instance=ExtResource("11_muem4")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-2.1855689e-08, 0.86602545, -0.49999994, 3.785517e-08, 0.49999994, 0.86602545, 1, 0, -4.371138e-08, 1.5, 14, 12)
+
+[node name="Sky" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.70710677, -0.35355335, 0.6123724, -1.4901161e-08, 0.8660254, 0.5, -0.70710677, -0.3535534, 0.6123724, -11.5, 48, 9.5)
+light_energy = 20.0
+sky_mode = 2
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.6830127, -0.56565017, 0.4620969, 0.18301262, 0.74501, 0.6414566, -0.70710677, -0.35355347, 0.61237246, -11.5, 48, 9.5)
+light_energy = 0.6
+shadow_enabled = true
+shadow_blur = 1.34
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eb6dy")
+
+[connection signal="gui_input" from="Viewport" to="." method="OnViewPortGuiInput"]
+[connection signal="gui_input" from="Viewport/Top Menu" to="." method="onTopMenuGuiInput"]
+[connection signal="pressed" from="Viewport/Top Menu/HBoxContainer/HBoxContainer2/SilverwaveButton" to="." method="onSilverwareButtonPressed"]
+[connection signal="pressed" from="Viewport/Top Menu/HBoxContainer/HBoxContainer2/IceButton" to="." method="onIceButtonPressed"]
+[connection signal="pressed" from="Viewport/Top Menu/HBoxContainer/HBoxContainer2/StoveButton" to="." method="onStoveButtonPressed"]
+[connection signal="pressed" from="Viewport/Top Menu/HBoxContainer/HBoxContainer2/SinkButton" to="." method="onSinkButtonPressed"]
+[connection signal="pressed" from="Viewport/Top Menu/HBoxContainer/HBoxContainer2/ChefButton" to="." method="onChefButtonPressed"]

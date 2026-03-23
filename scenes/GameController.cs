@@ -1,22 +1,20 @@
 using Godot;
-using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
-using System.Transactions;
 
-public partial class Kitchen : Node3D
+public partial class GameController : Node3D
 {
-	private enum Button
-	{	
-		None,
-		Silverware,
-		Ice,
-		Stove,
-		Sink,
-		Chef
-	}
+    private enum Button
+    {
+        None,
+        Silverware,
+        Ice,
+        Stove,
+        Sink,
+        Chef
+    }
 
-	private Button pressedButton;
+    private Button pressedButton;
     private Camera3D camera;
     private Plane floorPlane;
     private PackedScene _newTower = GD.Load<PackedScene>("res://scenes/tower.tscn");
@@ -26,17 +24,16 @@ public partial class Kitchen : Node3D
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
-	{
-		pressedButton = Button.None;
+    {
+        pressedButton = Button.None;
         camera = GetViewport().GetCamera3D();
         floorPlane = new Plane(Vector3.Up, 0.5f); // normal, distance from origin
     }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
 	{
-        
-    }
+	}
 
     private void displayTowerOnFloor()
     {
@@ -68,51 +65,51 @@ public partial class Kitchen : Node3D
     }
 
     public void highlightFloor()
-	{
-		this.GetNode<Node3D>("%FloorHighlight").Visible = true;
+    {
+        this.GetNode<Node3D>("%FloorHighlight").Visible = true;
         this.GetNode<Node3D>("%CounterHighlight").Visible = false;
     }
 
-	public void highlightCounters()
-	{
-		this.GetNode<Node3D>("%CounterHighlight").Visible = true;
+    public void highlightCounters()
+    {
+        this.GetNode<Node3D>("%CounterHighlight").Visible = true;
         this.GetNode<Node3D>("%FloorHighlight").Visible = false;
     }
 
 
-	public void removeHighlights()
-	{
+    public void removeHighlights()
+    {
         this.GetNode<Node3D>("%FloorHighlight").Visible = false;
         this.GetNode<Node3D>("%CounterHighlight").Visible = false;
     }
 
-	public void onSilverwareButtonPressed()
-	{
+    public void onSilverwareButtonPressed()
+    {
 
 
         if (pressedButton != Button.Silverware)
-		{
+        {
             newTower = (Node3D)_newTower.Instantiate();
             this.AddChild(newTower);
             this.highlightFloor();
-			pressedButton = Button.Silverware;
+            pressedButton = Button.Silverware;
         }
-		else
-		{
+        else
+        {
             if (newTower != null)
             {
                 newTower.QueueFree();
                 newTower = null;
             }
 
-			this.removeHighlights();
-			pressedButton = Button.None;
-		}
-		
-	}
+            this.removeHighlights();
+            pressedButton = Button.None;
+        }
 
-	public void onIceButtonPressed()
-	{
+    }
+
+    public void onIceButtonPressed()
+    {
         if (pressedButton != Button.Ice)
         {
             this.highlightFloor();
@@ -130,8 +127,8 @@ public partial class Kitchen : Node3D
         }
     }
 
-	public void onStoveButtonPressed()
-	{
+    public void onStoveButtonPressed()
+    {
         if (pressedButton != Button.Stove)
         {
             this.highlightCounters();
@@ -149,8 +146,8 @@ public partial class Kitchen : Node3D
         }
     }
 
-	public void onSinkButtonPressed()
-	{
+    public void onSinkButtonPressed()
+    {
         if (pressedButton != Button.Sink)
         {
             this.highlightCounters();
@@ -168,8 +165,8 @@ public partial class Kitchen : Node3D
         }
     }
 
-	public void onChefButtonPressed()
-	{
+    public void onChefButtonPressed()
+    {
         if (pressedButton != Button.Chef)
         {
             this.highlightFloor();
@@ -189,17 +186,17 @@ public partial class Kitchen : Node3D
 
 
     public void onTopMenuGuiInput(InputEvent e)
-	{
+    {
         if (e is InputEventMouseButton mouseEvent && mouseEvent.Pressed)
-		{
+        {
             if (newTower != null)
             {
                 newTower.QueueFree();
                 newTower = null;
             }
             this.removeHighlights();
-			this.pressedButton = Button.None;
-		}
+            this.pressedButton = Button.None;
+        }
     }
 
 
