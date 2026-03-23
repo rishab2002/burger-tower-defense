@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://ur3tqvv7wswv"]
+[gd_scene load_steps=34 format=3 uid="uid://ur3tqvv7wswv"]
 
 [ext_resource type="PackedScene" uid="uid://fa6dpk7yxn2c" path="res://scenes/kitchen.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://bxhwyv0ldhvmq" path="res://scenes/Kitchen.cs" id="2_sugp2"]
 [ext_resource type="Material" uid="uid://cpxu3js8br25q" path="res://materials/blue_highlight.tres" id="3_jyhfs"]
+[ext_resource type="Script" uid="uid://chwgnadrbw1wf" path="res://scripts/FloorHighlight.cs" id="3_tbgi4"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_tbgi4"]
 material = ExtResource("3_jyhfs")
@@ -124,6 +125,7 @@ script = ExtResource("2_sugp2")
 [node name="FloorHighlight" type="Node3D" parent="Kitchen"]
 unique_name_in_owner = true
 visible = false
+script = ExtResource("3_tbgi4")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Kitchen/FloorHighlight"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.51, 3)
@@ -254,88 +256,98 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.51, 23)
 mesh = SubResource("PlaneMesh_2wyq8")
 skeleton = NodePath("../..")
 
-[node name="Top Menu" type="PanelContainer" parent="."]
+[node name="Viewport" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top Menu" type="PanelContainer" parent="Viewport"]
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 100.0
+offset_bottom = 108.0
 grow_horizontal = 2
 theme = SubResource("Theme_0wfyh")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Top Menu"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Viewport/Top Menu"]
 layout_mode = 2
 mouse_filter = 2
 theme = SubResource("Theme_o5qli")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Top Menu/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Viewport/Top Menu/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="Top Menu/HBoxContainer/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="Viewport/Top Menu/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Top Menu/HBoxContainer/HBoxContainer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Viewport/Top Menu/HBoxContainer/HBoxContainer/CenterContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 mouse_filter = 2
 theme = SubResource("Theme_sugp2")
 
-[node name="Label" type="Label" parent="Top Menu/HBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Viewport/Top Menu/HBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_jyhfs")
 text = "$ xxxx"
 
-[node name="Label3" type="Label" parent="Top Menu/HBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="Viewport/Top Menu/HBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_jyhfs")
 text = "Round X"
 
-[node name="Button" type="Button" parent="Top Menu/HBoxContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="Viewport/Top Menu/HBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "START"
 
-[node name="Control" type="Control" parent="Top Menu/HBoxContainer"]
+[node name="Control" type="Control" parent="Viewport/Top Menu/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Top Menu/HBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Viewport/Top Menu/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 mouse_filter = 2
 
-[node name="SilverwaveButton" type="Button" parent="Top Menu/HBoxContainer/HBoxContainer2"]
+[node name="SilverwaveButton" type="Button" parent="Viewport/Top Menu/HBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "Silverware
 Dispenser"
 
-[node name="IceButton" type="Button" parent="Top Menu/HBoxContainer/HBoxContainer2"]
+[node name="IceButton" type="Button" parent="Viewport/Top Menu/HBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "Ice
 Machine"
 
-[node name="StoveButton" type="Button" parent="Top Menu/HBoxContainer/HBoxContainer2"]
+[node name="StoveButton" type="Button" parent="Viewport/Top Menu/HBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "Stove"
 
-[node name="SinkButton" type="Button" parent="Top Menu/HBoxContainer/HBoxContainer2"]
+[node name="SinkButton" type="Button" parent="Viewport/Top Menu/HBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "Garbage
 Disposal"
 
-[node name="ChefButton" type="Button" parent="Top Menu/HBoxContainer/HBoxContainer2"]
+[node name="ChefButton" type="Button" parent="Viewport/Top Menu/HBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "Chef"
 
-[connection signal="gui_input" from="Top Menu" to="Kitchen" method="onTopMenuGuiInput"]
-[connection signal="pressed" from="Top Menu/HBoxContainer/HBoxContainer2/SilverwaveButton" to="Kitchen" method="onSilverwareButtonPressed"]
-[connection signal="pressed" from="Top Menu/HBoxContainer/HBoxContainer2/IceButton" to="Kitchen" method="onIceButtonPressed"]
-[connection signal="pressed" from="Top Menu/HBoxContainer/HBoxContainer2/StoveButton" to="Kitchen" method="onStoveButtonPressed"]
-[connection signal="pressed" from="Top Menu/HBoxContainer/HBoxContainer2/SinkButton" to="Kitchen" method="onSinkButtonPressed"]
-[connection signal="pressed" from="Top Menu/HBoxContainer/HBoxContainer2/ChefButton" to="Kitchen" method="onChefButtonPressed"]
+[connection signal="gui_input" from="Viewport" to="Kitchen" method="OnViewPortGuiInput"]
+[connection signal="gui_input" from="Viewport/Top Menu" to="Kitchen" method="onTopMenuGuiInput"]
+[connection signal="pressed" from="Viewport/Top Menu/HBoxContainer/HBoxContainer2/SilverwaveButton" to="Kitchen" method="onSilverwareButtonPressed"]
+[connection signal="pressed" from="Viewport/Top Menu/HBoxContainer/HBoxContainer2/IceButton" to="Kitchen" method="onIceButtonPressed"]
+[connection signal="pressed" from="Viewport/Top Menu/HBoxContainer/HBoxContainer2/StoveButton" to="Kitchen" method="onStoveButtonPressed"]
+[connection signal="pressed" from="Viewport/Top Menu/HBoxContainer/HBoxContainer2/SinkButton" to="Kitchen" method="onSinkButtonPressed"]
+[connection signal="pressed" from="Viewport/Top Menu/HBoxContainer/HBoxContainer2/ChefButton" to="Kitchen" method="onChefButtonPressed"]

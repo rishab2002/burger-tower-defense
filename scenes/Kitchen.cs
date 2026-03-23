@@ -1,5 +1,8 @@
 using Godot;
+using Microsoft.VisualBasic;
 using System;
+using System.Collections.Generic;
+using System.Transactions;
 
 public partial class Kitchen : Node3D
 {
@@ -14,19 +17,57 @@ public partial class Kitchen : Node3D
 	}
 
 	private Button pressedButton;
+    private Camera3D camera;
+    private Plane floorPlane;
+    private PackedScene _newTower = GD.Load<PackedScene>("res://scenes/tower.tscn");
+    private Node3D newTower = null;
+    private bool placementIsValid = false;
+    private List<Node3D> towerList = new List<Node3D>();
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
 	{
 		pressedButton = Button.None;
-	}
+        camera = GetViewport().GetCamera3D();
+        floorPlane = new Plane(Vector3.Up, 0.5f); // normal, distance from origin
+    }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-	}
+        
+    }
 
-	public void highlightFloor()
+    private void displayTowerOnFloor()
+    {
+        Vector2 mousePos = GetViewport().GetMousePosition();
+        Vector3 rayOrigin = camera.ProjectRayOrigin(mousePos);
+        Vector3 rayDirection = camera.ProjectRayNormal(mousePos);
+        Vector3? intersection = floorPlane.IntersectsRay(rayOrigin, rayDirection);
+
+        if (intersection != null)
+        {
+            Vector3 towerPos = intersection.Value;
+            Vector2 towerPos2D = new Vector2(towerPos.X, towerPos.Z);
+            FloorHighlight floor = this.GetNode<FloorHighlight>("%FloorHighlight");
+            if (floor.isInside(towerPos2D))
+            {
+                placementIsValid = true;
+                towerPos.X = Mathf.Floor(towerPos.X) + 0.5f;
+                towerPos.Z = Mathf.Floor(towerPos.Z) + 0.5f;
+                towerPos.Y = 0.5f;
+                newTower.Position = towerPos;
+            }
+            else
+            {
+                placementIsValid = false;
+                towerPos.Y = -3f;
+                newTower.Position = towerPos;
+            }
+        }
+    }
+
+    public void highlightFloor()
 	{
 		this.GetNode<Node3D>("%FloorHighlight").Visible = true;
         this.GetNode<Node3D>("%CounterHighlight").Visible = false;
@@ -47,13 +88,23 @@ public partial class Kitchen : Node3D
 
 	public void onSilverwareButtonPressed()
 	{
-		if (pressedButton != Button.Silverware)
+
+
+        if (pressedButton != Button.Silverware)
 		{
+            newTower = (Node3D)_newTower.Instantiate();
+            this.AddChild(newTower);
             this.highlightFloor();
 			pressedButton = Button.Silverware;
         }
 		else
 		{
+            if (newTower != null)
+            {
+                newTower.QueueFree();
+                newTower = null;
+            }
+
 			this.removeHighlights();
 			pressedButton = Button.None;
 		}
@@ -69,6 +120,11 @@ public partial class Kitchen : Node3D
         }
         else
         {
+            if (newTower != null)
+            {
+                newTower.QueueFree();
+                newTower = null;
+            }
             this.removeHighlights();
             pressedButton = Button.None;
         }
@@ -83,6 +139,11 @@ public partial class Kitchen : Node3D
         }
         else
         {
+            if (newTower != null)
+            {
+                newTower.QueueFree();
+                newTower = null;
+            }
             this.removeHighlights();
             pressedButton = Button.None;
         }
@@ -97,6 +158,11 @@ public partial class Kitchen : Node3D
         }
         else
         {
+            if (newTower != null)
+            {
+                newTower.QueueFree();
+                newTower = null;
+            }
             this.removeHighlights();
             pressedButton = Button.None;
         }
@@ -111,6 +177,11 @@ public partial class Kitchen : Node3D
         }
         else
         {
+            if (newTower != null)
+            {
+                newTower.QueueFree();
+                newTower = null;
+            }
             this.removeHighlights();
             pressedButton = Button.None;
         }
@@ -121,8 +192,34 @@ public partial class Kitchen : Node3D
 	{
         if (e is InputEventMouseButton mouseEvent && mouseEvent.Pressed)
 		{
-			this.removeHighlights();
+            if (newTower != null)
+            {
+                newTower.QueueFree();
+                newTower = null;
+            }
+            this.removeHighlights();
 			this.pressedButton = Button.None;
 		}
+    }
+
+
+    public void OnViewPortGuiInput(InputEvent e)
+    {
+        if (e is InputEventMouseMotion)
+        {
+            switch (pressedButton)
+            {
+                case Button.Silverware:
+                    displayTowerOnFloor();
+                    break;
+            }
+        }
+        else if (e is InputEventMouseButton mouseEvent && mouseEvent.Pressed && placementIsValid)
+        {
+            towerList.Add(newTower);
+            newTower = null;
+            this.removeHighlights();
+            pressedButton = Button.None;
+        }
     }
 }
