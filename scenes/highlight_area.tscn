@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwtajtq5gr685"]
+
+[ext_resource type="Script" uid="uid://chwgnadrbw1wf" path="res://scripts/HighlightArea.cs" id="1_op53f"]
+
+[node name="HighlightArea" type="Node3D"]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("1_op53f")

@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ddv6ahym1drix"]
+
+[sub_resource type="Shader" id="Shader_52ff2"]
+code = "shader_type spatial;
+
+render_mode unshaded, cull_disabled, blend_mix;
+
+uniform float darkness = 0.25;
+uniform float edge_strength = 1.5;
+
+void fragment() {
+    float fresnel = pow(1.0 - dot(NORMAL, VIEW), edge_strength);
+
+    ALBEDO = vec3(0.0);
+    ALPHA = darkness + fresnel * 0.4;
+}"
+
+[resource]
+render_priority = 0
+shader = SubResource("Shader_52ff2")
+shader_parameter/darkness = 0.25
+shader_parameter/edge_strength = 1.5

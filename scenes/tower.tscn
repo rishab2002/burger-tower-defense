@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2i4e4xlmliml"]
+[gd_scene load_steps=4 format=3 uid="uid://b2i4e4xlmliml"]
 
-[ext_resource type="PackedScene" uid="uid://c8xho66gurk83" path="res://assets/kitchenAssets/gltf/chair_A.gltf" id="1_k1sas"]
+[ext_resource type="Script" uid="uid://dkhbvtdf66p31" path="res://scripts/Tower.cs" id="1_ktxwe"]
+[ext_resource type="Material" uid="uid://ddv6ahym1drix" path="res://materials/range_sphere.tres" id="2_ay4al"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ktxwe"]
+material = ExtResource("2_ay4al")
+radius = 4.0
+height = 8.0
 
 [node name="Tower" type="Node3D"]
+script = ExtResource("1_ktxwe")
 
-[node name="chair_A2" parent="." instance=ExtResource("1_k1sas")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+[node name="visibility" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("SphereMesh_ktxwe")
