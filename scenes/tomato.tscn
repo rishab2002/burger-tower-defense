@@ -84,7 +84,7 @@ shadow_mesh = SubResource("ArrayMesh_i5cwd")
 [node name="Tomato" type="Node3D"]
 
 [node name="Tomato_low" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.66, 0, 0, 0, 0.5, 0, 0, 0)
+transform = Transform3D(0.4, 0, 0, 0, 0.528, 0, 0, 0, 0.4, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_c7kf0")
 mesh = SubResource("ArrayMesh_qstqu")
 skeleton = NodePath("")

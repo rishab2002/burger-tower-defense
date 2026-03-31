@@ -40,7 +40,7 @@ public partial class SinkPlacementSystem : Node3D
         possiblePlaces.Add(new Vector2(19, 9), new PlacementRule(180, false));
         possiblePlaces.Add(new Vector2(21, 7), new PlacementRule(270, false));
         possiblePlaces.Add(new Vector2(23, 5), new PlacementRule(180, false));
-        possiblePlaces.Add(new Vector2(10, 7), new PlacementRule(0, true));
+        possiblePlaces.Add(new Vector2(10, 7), new PlacementRule(180, true));
         possiblePlaces.Add(new Vector2(9, 17), new PlacementRule(0, true));
         possiblePlaces.Add(new Vector2(9, 15), new PlacementRule(0, true));
         possiblePlaces.Add(new Vector2(9, 13), new PlacementRule(0, true));
@@ -51,9 +51,9 @@ public partial class SinkPlacementSystem : Node3D
         possiblePlaces.Add(new Vector2(6, 11), new PlacementRule(180, true));
         possiblePlaces.Add(new Vector2(6, 9), new PlacementRule(180, true));
         possiblePlaces.Add(new Vector2(6, 7), new PlacementRule(180, true));
-        possiblePlaces.Add(new Vector2(6, 5), new PlacementRule(270, true));
-        possiblePlaces.Add(new Vector2(8, 5), new PlacementRule(270, true));
-        possiblePlaces.Add(new Vector2(10, 5), new PlacementRule(270, true));
+        possiblePlaces.Add(new Vector2(6, 5), new PlacementRule(90, true));
+        possiblePlaces.Add(new Vector2(8, 5), new PlacementRule(90, true));
+        possiblePlaces.Add(new Vector2(10, 5), new PlacementRule(90, true));
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -755,21 +755,21 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, 0
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4.5, 8)
-light_color = Color(0.9713337, 1, 0.6104375, 1)
+light_color = Color(0.95686275, 0.972549, 0.8039216, 1)
 light_energy = 4.815
 shadow_enabled = true
 omni_range = 15.244
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 4.5, 8)
-light_color = Color(0.9713337, 1, 0.6104375, 1)
+light_color = Color(0.95686275, 0.972549, 0.8039216, 1)
 light_energy = 4.815
 shadow_enabled = true
 omni_range = 15.244
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4.5, 16.5)
-light_color = Color(0.9713337, 1, 0.6104375, 1)
+light_color = Color(0.95686275, 0.972549, 0.8039216, 1)
 light_energy = 4.815
 shadow_enabled = true
 omni_range = 15.244

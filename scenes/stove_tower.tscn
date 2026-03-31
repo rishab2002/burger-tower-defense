@@ -9,3 +9,6 @@
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1, 0)
 
 [node name="stove_single_countertop2" parent="." index="1" instance=ExtResource("2_kkqcm")]
+
+[node name="Light" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

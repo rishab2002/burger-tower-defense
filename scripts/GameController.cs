@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 public partial class GameController : Node3D
 {
@@ -24,8 +25,11 @@ public partial class GameController : Node3D
     private PackedScene _sinkTower = GD.Load<PackedScene>("res://scenes/sink_tower.tscn");
     private PackedScene _chefTower = GD.Load<PackedScene>("res://scenes/chef_tower.tscn");
     private Tower newTower = null;
+    private Tower highlightedTower = null;
+    private Tower selectedTower = null;
     private bool placementIsValid = false;
-    private List<Tower> towerList = new List<Tower>();
+    private List<Tower> floorTowerList = new List<Tower>();
+    private List<Tower> counterTowerList = new List<Tower>();
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -50,6 +54,81 @@ public partial class GameController : Node3D
         Vector3? intersection = plane.IntersectsRay(rayOrigin, rayDirection);
         return intersection;
     }
+
+    private void displayTowerHighlight()
+    {
+        Vector3? intersection = getMouseIntersection(floorPlane);
+        if (intersection != null)
+        {
+            Vector3 pos = intersection.Value;
+            Vector2 pos2D = new Vector2(pos.X, pos.Z);
+
+            foreach (Tower tower in floorTowerList)
+            {
+                Vector2 towerPos2D = new Vector2(tower.Position.X, tower.Position.Z);
+                if (towerPos2D.Floor() == pos2D.Floor() && tower != selectedTower)
+                {
+                    tower.highlight();
+                    if (highlightedTower != null && highlightedTower != tower)
+                    {
+                        highlightedTower.unHighlight();
+                    }
+                    highlightedTower = tower;
+                }
+                else if (tower == highlightedTower)
+                {
+                    tower.unHighlight();
+                    highlightedTower = null;
+
+                }
+            }
+        }
+
+        intersection = getMouseIntersection(counterPlane);
+        if (intersection != null)
+        {
+            Vector3 pos = intersection.Value;
+            Vector2 pos2D = new Vector2(pos.X, pos.Z);
+
+            foreach (Tower tower in counterTowerList)
+            {
+                Vector2 towerPos2D = new Vector2(tower.Position.X, tower.Position.Z);
+                Vector2 difference = towerPos2D - pos2D;
+                if (Mathf.Abs(difference.X) <= 0.8 && Mathf.Abs(difference.Y) <= 0.8 && tower != selectedTower)
+                {
+                    tower.highlight();
+                    if (highlightedTower != null && highlightedTower != tower)
+                    {
+                        highlightedTower.unHighlight();
+                    }
+                    highlightedTower = tower;
+                }
+                else if (tower == highlightedTower)
+                {
+                    tower.unHighlight();
+                    highlightedTower = null;
+                }
+            }
+        }
+    }
+
+    public void selectTower()
+    {
+        if (selectedTower != null)
+        {
+            selectedTower.hideVisibility();
+        }
+
+        selectedTower = highlightedTower;
+        highlightedTower = null;
+        if (selectedTower != null)
+        {
+            selectedTower.showVisibility();
+            selectedTower.unHighlight();
+        }
+
+    }
+
 
     private void displayTowerOnFloor()
     {
@@ -216,7 +295,7 @@ public partial class GameController : Node3D
         }
         else
         {
-            
+           
 
             this.removeHighlights();
             pressedButton = Button.None;
@@ -326,12 +405,16 @@ public partial class GameController : Node3D
             }
             this.removeHighlights();
             this.pressedButton = Button.None;
+
         }
+
+            
     }
 
 
     public void OnViewPortGuiInput(InputEvent e)
     {
+
         if (e is InputEventMouseMotion)
         {
             switch (pressedButton)
@@ -347,47 +430,75 @@ public partial class GameController : Node3D
                 case Button.Sink:
                     displaySinkTower();
                     break;
+                case Button.None:
+                    displayTowerHighlight();
+                    break;
             }
         }
-        else if (e is InputEventMouseButton mouseEvent && mouseEvent.Pressed && placementIsValid)
+        else if (e is InputEventMouseButton mouseEvent && mouseEvent.Pressed)
         {
-            newTower.hideVisibility();
-            towerList.Add(newTower);
-
-            switch (pressedButton)
+            if (placementIsValid)
             {
-                case Button.Chef:
-                case Button.Silverware:
-                case Button.Ice:
-                    this.GetNode<HighlightArea>("%FloorHighlight").setOccupied(new Vector2(newTower.Position.X, newTower.Position.Z));
-                    break;
-                case Button.Stove:
-                case Button.Sink:
-                    HighlightArea counter1 = this.GetNode<HighlightArea>("%CounterHighlight");
-                    HighlightArea counter2 = this.GetNode<HighlightArea>("%SinkHighlightA");
-                    HighlightArea counter3 = this.GetNode<HighlightArea>("%SinkHighlightB");
-                    counter1.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z + 0.5f));
-                    counter1.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z + 0.5f));
-                    counter1.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z - 0.5f));
-                    counter1.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z - 0.5f));
-                    counter2.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z + 0.5f));
-                    counter2.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z + 0.5f));
-                    counter2.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z - 0.5f));
-                    counter2.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z - 0.5f));
-                    counter3.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z + 0.5f));
-                    counter3.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z + 0.5f));
-                    counter3.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z - 0.5f));
-                    counter3.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z - 0.5f));
-                    break;
+
+                if (newTower != null)
+                {
+                    newTower.hideVisibility();
+                }
+
+                switch (pressedButton)
+                {
+                    case Button.Chef:
+                    case Button.Silverware:
+                    case Button.Ice:
+
+                        floorTowerList.Add(newTower);
+
+                        this.GetNode<HighlightArea>("%FloorHighlight").setOccupied(new Vector2(newTower.Position.X, newTower.Position.Z));
+
+
+
+                        break;
+                    case Button.Stove:
+                    case Button.Sink:
+
+                        counterTowerList.Add(newTower);
+
+                        HighlightArea counter1 = this.GetNode<HighlightArea>("%CounterHighlight");
+                        HighlightArea counter2 = this.GetNode<HighlightArea>("%SinkHighlightA");
+                        HighlightArea counter3 = this.GetNode<HighlightArea>("%SinkHighlightB");
+                        counter1.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z + 0.5f));
+                        counter1.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z + 0.5f));
+                        counter1.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z - 0.5f));
+                        counter1.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z - 0.5f));
+                        counter2.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z + 0.5f));
+                        counter2.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z + 0.5f));
+                        counter2.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z - 0.5f));
+                        counter2.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z - 0.5f));
+                        counter3.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z + 0.5f));
+                        counter3.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z + 0.5f));
+                        counter3.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z - 0.5f));
+                        counter3.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z - 0.5f));
+                        break;
+                }
+
+                newTower = null;
+                placementIsValid = false;
+                this.removeHighlights();
+                pressedButton = Button.None;
+                this.GetNode<Kitchen>("%Kitchen").cleanup();
             }
-
-            newTower = null;
-            this.removeHighlights();
-            pressedButton = Button.None;
-            this.GetNode<Kitchen>("%Kitchen").cleanup();
-
-   
-
+            else if (Button.None == pressedButton)
+            {
+                if (highlightedTower != null)
+                {
+                    this.GetNode<SideMenu>("%SideMenu").slideIn();
+                }
+                else
+                {
+                    this.GetNode<SideMenu>("%SideMenu").slideOut();
+                }
+                selectTower();
+            }
         }
     }
 }

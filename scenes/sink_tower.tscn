@@ -20,3 +20,6 @@ unique_name_in_owner = true
 [node name="metal" parent="SinkDisplayer" index="1" instance=ExtResource("4_qkyqp")]
 unique_name_in_owner = true
 visible = false
+
+[node name="Light" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

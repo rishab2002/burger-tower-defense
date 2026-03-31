@@ -7,3 +7,6 @@
 
 [node name="fridge_A_decorated2" parent="." index="0" instance=ExtResource("2_gw5rc")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Light" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

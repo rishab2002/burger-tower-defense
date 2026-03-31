@@ -1,8 +1,10 @@
-[gd_scene load_steps=59 format=3 uid="uid://ur3tqvv7wswv"]
+[gd_scene load_steps=63 format=3 uid="uid://ur3tqvv7wswv"]
 
 [ext_resource type="Script" uid="uid://s24xph0flbb4" path="res://scripts/GameController.cs" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://fa6dpk7yxn2c" path="res://scenes/kitchen.tscn" id="1_o5qli"]
 [ext_resource type="Material" uid="uid://cpxu3js8br25q" path="res://materials/blue_highlight.tres" id="3_jyhfs"]
+[ext_resource type="Theme" uid="uid://dg4iw7s24ixwt" path="res://Themes/menu_theme.tres" id="3_trceg"]
+[ext_resource type="Script" uid="uid://cmsl888vv6cun" path="res://scripts/SideMenu.cs" id="4_a8y0u"]
 [ext_resource type="Script" uid="uid://68p4m1yglhu7" path="res://scripts/PathFollow3d.cs" id="5_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://deltl7uat2fka" path="res://scenes/lettuce.tscn" id="6_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://c0crt7drkues5" path="res://scenes/cheese.tscn" id="7_trceg"]
@@ -32,10 +34,27 @@ VBoxContainer/constants/separation = 10
 [sub_resource type="Theme" id="Theme_jyhfs"]
 Label/font_sizes/font_size = 28
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8y0u"]
+bg_color = Color(0.86898494, 0.86898494, 0.8689847, 1)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.49, 0.49, 0.49, 1)
+border_blend = true
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+shadow_size = 14
+
+[sub_resource type="Theme" id="Theme_jkv2x"]
+Panel/styles/panel = SubResource("StyleBoxFlat_a8y0u")
+
 [sub_resource type="Curve3D" id="Curve3D_dp3eg"]
 bake_interval = 5.37
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.20000005, -1.5, 0, 0, 0, 0, 0, 0, 0, 0.1, 1.5, 0, 0, 0, 0, 0, 0, 16.5, 0, 2, 0, 0, 0, 0, 0, 0, 17, 0, 4.5, 0, 0, 0, 0, 0, 0, 15.5, 0, 5.5, 0, 0, 0, 0, 0, 0, 13.5, 0, 6.5, 0, 0, 0, 0, 0, 0, 3.5, 0, 7, 0, 0, 0, 0, 0, 0, 3, 0, 10, 0, 0, 0, 0, 0, 0, 6.5, 0, 10.5, 0, 0, 0, 0, 0, 0, 8, 0, 9.5, 0, 0, 0, 0, 0, 0, 14, 0, 9.5, 0, 0, 0, 0, 0, 0, 15.5, 0, 11.5, 0, 0, 0, 0, 0, 0, 17, 0, 13, 0, 0, 0, 0, 0, 0, 16.5, 0, 15, 0, 0, 0, 0, 0, 0, 9, 0, 15.5, 0, 0, 0, 0, 0, 0, 9, 0, 19.5, 0, 0, 0, 0, 0, 0, 5, 0, 19.5, 0, 0, 0, 0, 0, 0, 5, 0, 23.5, 0, 0, 0, 0, 0, 0, 0.5, 0.20000005, 23.5, 0, 0, 0, 0, 0, 0, 0, 0, 27),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.20000005, -1.5, 0, 0, 0, 0, 0, 0, 1.0644426, 0.20000005, 1.5443519, 0, 0, 0, 0, 0, 0, 16.233889, 0.100000024, 2.1108794, 0, 0, 0, 0, 0, 0, 16.578657, 0.100000024, 4.823652, 0, 0, 0, 0, 0, 0, 15.049007, 0.100000024, 5.5, 0, 0, 0, 0, 0, 0, 13.5, 0.100000024, 6.245222, 0, 0, 0, 0, 0, 0, 3.5665283, 0.100000024, 6.3568983, 0, 0, 0, 0, 0, 0, 3.5697088, 0.100000024, 10.209276, 0, 0, 0, 0, 0, 0, 6.5, 0.100000024, 10.008923, 0, 0, 0, 0, 0, 0, 8, 0.1, 9.5, 0, 0, 0, 0, 0, 0, 14.561617, 0.100000024, 9.833089, 0, 0, 0, 0, 0, 0, 15.0486145, 0.100000024, 11.5, 0, 0, 0, 0, 0, 0, 16.634314, 0.100000024, 11.793244, 0, 0, 0, 0, 0, 0, 16.217701, 0.100000024, 14.940989, 0, 0, 0, 0, 0, 0, 8.963889, 0.100000024, 15.3990555, 0, 0, 0, 0, 0, 0, 8.456938, 0.100000024, 19.017277, 0, 0, 0, 0, 0, 0, 4.881299, 0.100000024, 19.400984, 0, 0, 0, 0, 0, 0, 4.456938, 0.100000024, 22.956938, 0, 0, 0, 0, 0, 0, 0.5, 0.1, 23.5, 0, 0, 0, 0, 0, 0, 0, 0.1, 27),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 20
@@ -209,6 +228,7 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 108.0
 grow_horizontal = 2
+mouse_filter = 1
 theme = SubResource("Theme_0wfyh")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Viewport/Top Menu"]
@@ -243,6 +263,7 @@ text = "Round X"
 [node name="Button" type="Button" parent="Viewport/Top Menu/HBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+mouse_filter = 1
 text = "START"
 
 [node name="Control" type="Control" parent="Viewport/Top Menu/HBoxContainer"]
@@ -258,63 +279,95 @@ mouse_filter = 2
 [node name="SilverwaveButton" type="Button" parent="Viewport/Top Menu/HBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+mouse_filter = 1
 text = "Silverware
 Dispenser"
 
 [node name="IceButton" type="Button" parent="Viewport/Top Menu/HBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+mouse_filter = 1
 text = "Ice
 Machine"
 
 [node name="StoveButton" type="Button" parent="Viewport/Top Menu/HBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+mouse_filter = 1
 text = "Stove"
 
 [node name="SinkButton" type="Button" parent="Viewport/Top Menu/HBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+mouse_filter = 1
 text = "Garbage
 Disposal"
 
 [node name="ChefButton" type="Button" parent="Viewport/Top Menu/HBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+mouse_filter = 1
 text = "Chef"
+
+[node name="SideMenu" type="PanelContainer" parent="Viewport"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 121.0
+offset_right = 146.0
+offset_bottom = -111.0
+grow_vertical = 2
+theme = ExtResource("3_trceg")
+script = ExtResource("4_a8y0u")
+
+[node name="BurgerDisplay" type="Panel" parent="Viewport"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 2.0
+offset_right = 100.0
+offset_bottom = 202.0
+grow_horizontal = 2
+mouse_filter = 2
+theme = SubResource("Theme_jkv2x")
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.6, -0.5)
 curve = SubResource("Curve3D_dp3eg")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-1, 2.9124672e-09, -8.7373984e-08, 0, 0.99944186, 0.033314742, 8.742278e-08, 0.033314742, -0.99944186, 0, 0.20000005, -1.5)
+transform = Transform3D(-0.9439602, 0, -0.33004987, 0, 0.9999966, 0, 0.3300509, 0, -0.94395727, 0, 0.20000005, -1.5)
 script = ExtResource("5_ya4ey")
 
 [node name="Lettuce" parent="Path3D/PathFollow3D" instance=ExtResource("6_eb6dy")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="PathFollow3D7" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.030498086, 0.0048937285, -0.99949425, -0.03818991, 0.99924654, 0.006057537, 0.9988032, 0.038356286, -0.030287573, 3.848642, 0.07667489, 1.6166255)
+transform = Transform3D(-0.037348196, 0.0064149215, -0.999222, -0.0044925, 0.999935, 0.00658707, 0.99925005, 0.004735345, -0.037317537, 4.517885, 0.17723429, 1.6733264)
 progress = 6.8799996
 script = ExtResource("5_ya4ey")
 
 [node name="PathFollow3D2" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.030497966, 0.0048937304, -0.99949425, -0.038189914, 0.99924654, 0.006057535, 0.9988032, 0.03835629, -0.030287454, 10.776129, 0.034690127, 1.8265494)
+transform = Transform3D(-0.037348196, 0.0064149215, -0.99922204, -0.0044925, 0.999935, 0.0065870704, 0.99925005, 0.004735345, -0.037317537, 11.789112, 0.12930088, 1.9448822)
 progress = 13.759999
 script = ExtResource("5_ya4ey")
 
 [node name="Cheese" parent="Path3D/PathFollow3D2" instance=ExtResource("7_trceg")]
 
 [node name="PathFollow3D3" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.33907178, -0.011324292, 0.9406883, -0.033379003, 0.99944234, 4.7190123e-09, -0.9401633, -0.03139948, -0.33926114, 12.298074, 0, 6.625617)
+transform = Transform3D(-0.18431689, 0.00020194381, 0.9828544, 0.0010956118, 0.9999944, 0, -0.98285383, 0.0010768479, -0.184317, 10.674797, 0.100000024, 6.311724)
 progress = 27.519999
 script = ExtResource("5_ya4ey")
 
 [node name="TopBun" parent="Path3D/PathFollow3D3" instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1, 0, 1.4901161e-08, 1.1641532e-10, 1, 1.4551915e-11, 0, 1.4551915e-11, 1.0000001, -7.915497e-05, -0.0722245, 0)
 
 [node name="PathFollow3D4" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.70032084, -0.023388982, -0.71343356, -0.033378873, 0.99942744, -8.03371e-10, 0.7130358, 0.02381363, -0.70071155, 5.0603204, 0, 10.528368)
+transform = Transform3D(0.0722746, -7.918485e-05, -0.997367, 0.0010956131, 0.99997735, 2.527007e-10, 0.99737275, -0.0010927361, 0.072274186, 6.5342784, 0.100000024, 10.003185)
 progress = 41.28
 script = ExtResource("5_ya4ey")
 
@@ -322,21 +375,21 @@ script = ExtResource("5_ya4ey")
 transform = Transform3D(-8.940697e-08, -1.8626451e-09, 0.99999994, 0, 0.99999994, 0, -1, 0, -5.9604645e-08, 0, 0, 0)
 
 [node name="PathFollow3D5" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.7100739, -0.023715084, -0.70371526, -0.033378858, 0.99944264, 6.449107e-11, 0.70332307, 0.02348962, -0.71046984, 16.980942, 0, 12.941927)
+transform = Transform3D(-0.95648676, 0.0010479655, -0.29170012, 0.0010956, 0.9999932, 1.4551547e-11, 0.29170078, -0.00031959917, -0.9564846, 16.625153, 0.100000024, 14.186045)
 progress = 55.039997
 script = ExtResource("5_ya4ey")
 
 [node name="Patty" parent="Path3D/PathFollow3D5" instance=ExtResource("10_jbj1t")]
 
 [node name="PathFollow3D6" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.9985006, -0.03334777, 0.043339275, -0.033379044, 0.99944234, 4.1525425e-10, -0.043315127, -0.0014466316, -0.9990572, 8.940315, 0, 19.550713)
+transform = Transform3D(-0.6557991, 0.00071851216, 0.7549164, 0.0010956124, 0.9999933, 6.530312e-11, -0.75492126, 0.0008271134, -0.65579486, 6.486758, 0.100000024, 19.19621)
 progress = 68.8
 script = ExtResource("5_ya4ey")
 
 [node name="BottomBum" parent="Path3D/PathFollow3D6" instance=ExtResource("11_muem4")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-2.1855689e-08, 0.86602545, -0.49999994, 3.785517e-08, 0.49999994, 0.86602545, 1, 0, -4.371138e-08, 1.5, 14, 12)
+transform = Transform3D(-2.3630696e-08, 0.84127504, -0.5406074, 3.6773294e-08, 0.5406074, 0.84127504, 1, 8.7703147e-16, -4.371139e-08, 1.5, 14, 12)
 
 [node name="Sky" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.70710677, -0.35355335, 0.6123724, -1.4901161e-08, 0.8660254, 0.5, -0.70710677, -0.3535534, 0.6123724, -11.5, 48, 9.5)
@@ -554,6 +607,30 @@ skeleton = NodePath("../../../Kitchen")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 1.51, 4)
 mesh = SubResource("PlaneMesh_c6pm6")
 skeleton = NodePath("../../../Kitchen")
+
+[node name="BottomBum" parent="." instance=ExtResource("11_muem4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 10)
+
+[node name="Cheese" parent="." instance=ExtResource("7_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.18622166, 10)
+
+[node name="Lettuce" parent="." instance=ExtResource("6_eb6dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.44737393, 10)
+
+[node name="Patty" parent="." instance=ExtResource("10_jbj1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.18494844, 10)
+
+[node name="TopBun" parent="." instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.6476674, 10)
+
+[node name="Tomato2" parent="." instance=ExtResource("9_jkv2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0427284, 0.55784667, 10.2177925)
+
+[node name="Tomato5" parent="." instance=ExtResource("9_jkv2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.753807, 0.55784667, 9.962466)
+
+[node name="Tomato3" parent="." instance=ExtResource("9_jkv2x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1029825, 0.55784667, 9.782346)
 
 [connection signal="gui_input" from="Viewport" to="." method="OnViewPortGuiInput"]
 [connection signal="gui_input" from="Viewport/Top Menu" to="." method="onTopMenuGuiInput"]
