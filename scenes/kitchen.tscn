@@ -1,12 +1,10 @@
 [gd_scene load_steps=31 format=3 uid="uid://fa6dpk7yxn2c"]
 
+[ext_resource type="Script" uid="uid://d1e8tsdaeq0f0" path="res://scripts/Kitchen.cs" id="1_j1h31"]
 [ext_resource type="PackedScene" uid="uid://cingom1tkohl4" path="res://assets/kitchenAssets/gltf/wall.gltf" id="1_xnsi2"]
-[ext_resource type="PackedScene" uid="uid://bc6q63y4g4gku" path="res://assets/kitchenAssets/gltf/kitchencounter_straight_B_backsplash.gltf" id="2_jluyr"]
 [ext_resource type="PackedScene" uid="uid://cr3dccoj1sfc5" path="res://assets/kitchenAssets/gltf/kitchencounter_straight_B.gltf" id="3_k6unl"]
 [ext_resource type="PackedScene" uid="uid://brmc50lp5al3o" path="res://assets/kitchenAssets/gltf/wall_orderwindow_decorated.gltf" id="4_ivwby"]
-[ext_resource type="PackedScene" uid="uid://d1i6r00fpr44j" path="res://assets/kitchenAssets/gltf/kitchencounter_innercorner_backsplash.gltf" id="5_scder"]
 [ext_resource type="PackedScene" uid="uid://dd457jbakc7iw" path="res://assets/kitchenAssets/gltf/wall_doorway.gltf" id="6_m008p"]
-[ext_resource type="PackedScene" uid="uid://dvrg7fek0c4vw" path="res://assets/kitchenAssets/gltf/kitchencounter_outercorner_backsplash.gltf" id="8_anvgo"]
 [ext_resource type="PackedScene" uid="uid://c2l0alt4tfdov" path="res://assets/kitchenAssets/gltf/kitchentable_A_large.gltf" id="9_h8ft4"]
 [ext_resource type="PackedScene" uid="uid://dje3gsvymtsay" path="res://assets/kitchenAssets/gltf/kitchentable_A.gltf" id="10_0pf43"]
 [ext_resource type="PackedScene" uid="uid://1n2ogenk4iyb" path="res://assets/kitchenAssets/gltf/floor_kitchen_small.gltf" id="11_45h7f"]
@@ -22,9 +20,11 @@
 [ext_resource type="PackedScene" uid="uid://bpru8cyx1gr4s" path="res://assets/cityAssets/gltf/building_F.gltf" id="23_fr5pv"]
 [ext_resource type="PackedScene" uid="uid://b7ltwv2kasbfl" path="res://assets/cityAssets/gltf/building_G.gltf" id="24_fr5pv"]
 [ext_resource type="PackedScene" uid="uid://li0gwl3fam3w" path="res://assets/cityAssets/gltf/car_hatchback.gltf" id="25_j1h31"]
+[ext_resource type="PackedScene" uid="uid://66tshtodmfnt" path="res://assets/kitchenAssets/gltf/kitchencounter_outercorner.gltf" id="25_ls4fu"]
 [ext_resource type="PackedScene" uid="uid://cpmynx3tsqd1i" path="res://assets/cityAssets/gltf/car_sedan.gltf" id="26_mbcyj"]
 [ext_resource type="PackedScene" uid="uid://diy45b52aqu0s" path="res://assets/cityAssets/gltf/car_stationwagon.gltf" id="27_psp1i"]
 [ext_resource type="PackedScene" uid="uid://biil0fw68jjse" path="res://assets/cityAssets/gltf/car_taxi.gltf" id="28_lxurs"]
+[ext_resource type="PackedScene" uid="uid://davknqrc4ux57" path="res://assets/kitchenAssets/gltf/kitchencounter_innercorner.gltf" id="29_mbcyj"]
 [ext_resource type="PackedScene" uid="uid://t3ma3e2c0b6o" path="res://assets/cityAssets/gltf/trafficlight_C.gltf" id="29_psp1i"]
 [ext_resource type="PackedScene" uid="uid://bugyr0nxuw13p" path="res://assets/cityAssets/gltf/streetlight.gltf" id="30_lxurs"]
 [ext_resource type="Script" uid="uid://da34imj7j3mv" path="res://scripts/MeshInstance3d.cs" id="36_mnhhk"]
@@ -34,7 +34,8 @@ albedo_color = Color(0.9098039, 0.9098039, 0.9098039, 0)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_j5uij"]
 
-[node name="KitchenRoot" type="Node3D"]
+[node name="Kitchen" type="Node3D"]
+script = ExtResource("1_j1h31")
 
 [node name="3DAssests" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -0.25)
@@ -108,54 +109,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.2
 [node name="wall18" parent="3DAssests" instance=ExtResource("1_xnsi2")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.25, 0, 2.25)
 
-[node name="kitchencounter_straight_B_backsplash11" parent="3DAssests" instance=ExtResource("2_jluyr")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13, 0, 3.25)
-
-[node name="kitchencounter_straight_B_backsplash20" parent="3DAssests" instance=ExtResource("2_jluyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 1.25)
-
-[node name="kitchencounter_straight_B_backsplash21" parent="3DAssests" instance=ExtResource("2_jluyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1.25)
-
-[node name="kitchencounter_straight_B_backsplash22" parent="3DAssests" instance=ExtResource("2_jluyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 1.25)
-
-[node name="kitchencounter_straight_B_backsplash23" parent="3DAssests" instance=ExtResource("2_jluyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1.25)
-
-[node name="kitchencounter_straight_B_backsplash24" parent="3DAssests" instance=ExtResource("2_jluyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1.25)
-
-[node name="kitchencounter_straight_B_backsplash25" parent="3DAssests" instance=ExtResource("2_jluyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1.25)
-
-[node name="kitchencounter_straight_B_backsplash26" parent="3DAssests" instance=ExtResource("2_jluyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1.25)
-
-[node name="kitchencounter_straight_B_backsplash16" parent="3DAssests" instance=ExtResource("2_jluyr")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 0, 17.25)
-
-[node name="kitchencounter_straight_B_backsplash18" parent="3DAssests" instance=ExtResource("2_jluyr")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, 0, 21.25)
-
-[node name="kitchencounter_straight_B_backsplash12" parent="3DAssests" instance=ExtResource("2_jluyr")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13, 0, 13.25)
-
-[node name="kitchencounter_straight_B_backsplash13" parent="3DAssests" instance=ExtResource("2_jluyr")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11, 0, 15.25)
-
-[node name="kitchencounter_straight_B_backsplash14" parent="3DAssests" instance=ExtResource("2_jluyr")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 9, 0, 15.25)
-
-[node name="kitchencounter_straight_B_backsplash15" parent="3DAssests" instance=ExtResource("2_jluyr")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 7, 0, 15.25)
-
-[node name="kitchencounter_straight_B_backsplash17" parent="3DAssests" instance=ExtResource("2_jluyr")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 3, 0, 19.25)
-
-[node name="kitchencounter_straight_B_backsplash19" parent="3DAssests" instance=ExtResource("2_jluyr")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1, 0, 23.25)
-
 [node name="kitchencounter_straight_B2" parent="3DAssests" instance=ExtResource("3_k6unl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 1.25)
 
@@ -168,77 +121,144 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -3, 
 [node name="kitchencounter_straight_B3" parent="3DAssests" instance=ExtResource("3_k6unl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1.25)
 
+[node name="counter_1,5" parent="3DAssests" instance=ExtResource("3_k6unl")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1.25)
+
+[node name="counter_1,7" parent="3DAssests" instance=ExtResource("3_k6unl")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1.25)
+
+[node name="counter_1,9" parent="3DAssests" instance=ExtResource("3_k6unl")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 1.25)
+
+[node name="counter_1,11" parent="3DAssests" instance=ExtResource("3_k6unl")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 1.25)
+
+[node name="counter_1,13" parent="3DAssests" instance=ExtResource("3_k6unl")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 1.25)
+
+[node name="counter_1,15" parent="3DAssests" instance=ExtResource("3_k6unl")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1.25)
+
+[node name="counter_1,17" parent="3DAssests" instance=ExtResource("3_k6unl")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 1.25)
+
+[node name="counter_3,19" parent="3DAssests" instance=ExtResource("3_k6unl")]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13, 0, 3.25)
+
+[node name="counter_5,19" parent="3DAssests" instance=ExtResource("25_ls4fu")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 5.25)
+
+[node name="counter_13,19" parent="3DAssests" instance=ExtResource("3_k6unl")]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13, 0, 13.25)
+
+[node name="counter_15,17" parent="3DAssests" instance=ExtResource("3_k6unl")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 11, 0, 15.25)
+
+[node name="counter_15,15" parent="3DAssests" instance=ExtResource("3_k6unl")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 9, 0, 15.25)
+
+[node name="counter_15,13" parent="3DAssests" instance=ExtResource("3_k6unl")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 7, 0, 15.25)
+
+[node name="counter_17,11" parent="3DAssests" instance=ExtResource("3_k6unl")]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 0, 17.25)
+
+[node name="counter_19,9" parent="3DAssests" instance=ExtResource("3_k6unl")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 3, 0, 19.25)
+
+[node name="counter_21,7" parent="3DAssests" instance=ExtResource("3_k6unl")]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, 0, 21.25)
+
+[node name="counter_23,5" parent="3DAssests" instance=ExtResource("3_k6unl")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1, 0, 23.25)
+
 [node name="wall_orderwindow_decorated2" parent="3DAssests" instance=ExtResource("4_ivwby")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
 [node name="wall_orderwindow_decorated3" parent="3DAssests" instance=ExtResource("4_ivwby")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -4, 0, 24.5)
 
-[node name="kitchencounter_innercorner_backsplash2" parent="3DAssests" instance=ExtResource("5_scder")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 1.25)
-
-[node name="kitchencounter_innercorner_backsplash3" parent="3DAssests" instance=ExtResource("5_scder")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13, 0, 15.25)
-
-[node name="kitchencounter_innercorner_backsplash4" parent="3DAssests" instance=ExtResource("5_scder")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 0, 19.25)
-
-[node name="kitchencounter_innercorner_backsplash5" parent="3DAssests" instance=ExtResource("5_scder")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, 0, 23.25)
-
 [node name="wall_doorway2" parent="3DAssests" instance=ExtResource("6_m008p")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 14.25, 0, 8.25)
-
-[node name="kitchencounter_outercorner_backsplash2" parent="3DAssests" instance=ExtResource("8_anvgo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 5.25)
-
-[node name="kitchencounter_outercorner_backsplash3" parent="3DAssests" instance=ExtResource("8_anvgo")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13, 0, 11.25)
-
-[node name="kitchencounter_outercorner_backsplash4" parent="3DAssests" instance=ExtResource("8_anvgo")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 0, 15.25)
-
-[node name="kitchencounter_outercorner_backsplash5" parent="3DAssests" instance=ExtResource("8_anvgo")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, 0, 19.25)
 
 [node name="kitchentable_A_large2" parent="3DAssests" instance=ExtResource("9_h8ft4")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, 0, 5.75)
 
-[node name="kitchentable_A_large4" parent="3DAssests" instance=ExtResource("9_h8ft4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, 6.25)
-
-[node name="kitchentable_A_large9" parent="3DAssests" instance=ExtResource("9_h8ft4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, 9.25)
-
-[node name="kitchentable_A_large10" parent="3DAssests" instance=ExtResource("9_h8ft4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 0, 9.25)
-
-[node name="kitchentable_A_large5" parent="3DAssests" instance=ExtResource("9_h8ft4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 6.25)
-
-[node name="kitchentable_A_large6" parent="3DAssests" instance=ExtResource("9_h8ft4")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 6.75)
-
-[node name="kitchentable_A_large7" parent="3DAssests" instance=ExtResource("9_h8ft4")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 9.75)
-
 [node name="kitchentable_A_large8" parent="3DAssests" instance=ExtResource("9_h8ft4")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3, 0, 9.75)
 
-[node name="kitchentable_A2" parent="3DAssests" instance=ExtResource("10_0pf43")]
+[node name="counter_10,7" parent="3DAssests" instance=ExtResource("10_0pf43")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 10.25)
 
-[node name="kitchentable_A5" parent="3DAssests" instance=ExtResource("10_0pf43")]
+[node name="counter_9,17" parent="3DAssests" instance=ExtResource("10_0pf43")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 9.25)
 
-[node name="kitchentable_A6" parent="3DAssests" instance=ExtResource("10_0pf43")]
+[node name="counter_9,15" parent="3DAssests" instance=ExtResource("10_0pf43")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 9.25)
+
+[node name="counter_9,13" parent="3DAssests" instance=ExtResource("10_0pf43")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 9.25)
+
+[node name="counter_9,11" parent="3DAssests" instance=ExtResource("10_0pf43")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 9.25)
+
+[node name="counter_11,17" parent="3DAssests" instance=ExtResource("10_0pf43")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 11.25)
 
-[node name="kitchentable_A3" parent="3DAssests" instance=ExtResource("10_0pf43")]
+[node name="counter_6,15" parent="3DAssests" instance=ExtResource("10_0pf43")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 6.25)
 
-[node name="kitchentable_A4" parent="3DAssests" instance=ExtResource("10_0pf43")]
+[node name="counter_6,13" parent="3DAssests" instance=ExtResource("10_0pf43")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 6.25)
+
+[node name="counter_6,11" parent="3DAssests" instance=ExtResource("10_0pf43")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 6.25)
+
+[node name="counter_6,9" parent="3DAssests" instance=ExtResource("10_0pf43")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 6.25)
+
+[node name="counter_6,7" parent="3DAssests" instance=ExtResource("10_0pf43")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 6.25)
+
+[node name="counter_6,5" parent="3DAssests" instance=ExtResource("10_0pf43")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 6.25)
+
+[node name="counter_8,5" parent="3DAssests" instance=ExtResource("10_0pf43")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 8.25)
+
+[node name="counter_10,5" parent="3DAssests" instance=ExtResource("10_0pf43")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 10.25)
 
 [node name="floor_kitchen_small2" parent="3DAssests" instance=ExtResource("11_45h7f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.5, 1.25)
@@ -723,23 +743,33 @@ transform = Transform3D(-2.1855699e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855699e-07, 14
 [node name="streetlight5" parent="3DAssests" instance=ExtResource("30_lxurs")]
 transform = Transform3D(-2.1855699e-07, 0, 5, 0, 5, 0, -5, 0, -2.1855699e-07, 4, 0, 30.25)
 
+[node name="counter_11,19" parent="3DAssests" instance=ExtResource("25_ls4fu")]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 13, 0, 11.25)
+
+[node name="kitchencounter_outercorner4" parent="3DAssests" instance=ExtResource("25_ls4fu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5, 0, 15.25)
+
+[node name="kitchencounter_outercorner5" parent="3DAssests" instance=ExtResource("25_ls4fu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1, 0, 19.25)
+
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4.5, 8)
-light_color = Color(0.9713337, 1, 0.6104375, 1)
+light_color = Color(0.95686275, 0.972549, 0.8039216, 1)
 light_energy = 4.815
 shadow_enabled = true
 omni_range = 15.244
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 4.5, 8)
-light_color = Color(0.9713337, 1, 0.6104375, 1)
+light_color = Color(0.95686275, 0.972549, 0.8039216, 1)
 light_energy = 4.815
 shadow_enabled = true
 omni_range = 15.244
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 4.5, 16.5)
-light_color = Color(0.9713337, 1, 0.6104375, 1)
+light_color = Color(0.95686275, 0.972549, 0.8039216, 1)
 light_energy = 4.815
 shadow_enabled = true
 omni_range = 15.244
@@ -750,3 +780,15 @@ material_override = SubResource("StandardMaterial3D_1cet2")
 cast_shadow = 3
 mesh = SubResource("ArrayMesh_j5uij")
 script = ExtResource("36_mnhhk")
+
+[node name="kitchencounter_innercorner2" parent="." instance=ExtResource("29_mbcyj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 0.5, 1)
+
+[node name="kitchencounter_innercorner3" parent="." instance=ExtResource("29_mbcyj")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19, 0.5, 15)
+
+[node name="kitchencounter_innercorner4" parent="." instance=ExtResource("29_mbcyj")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11, 0.5, 19)
+
+[node name="kitchencounter_innercorner5" parent="." instance=ExtResource("29_mbcyj")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7, 0.5, 23)

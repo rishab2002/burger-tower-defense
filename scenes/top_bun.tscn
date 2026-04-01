@@ -192,7 +192,7 @@ shadow_mesh = SubResource("ArrayMesh_m5eoh")
 [node name="TopBun" type="Node3D"]
 
 [node name="topbun_low" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.64739347, 0, -0.26623616, 0, 0.7, 0, 0.26623616, 0, 0.64739347, 0, 0, 0)
+transform = Transform3D(0.64739347, 0, -0.2662362, 0, 0.7, 0, 0.2662362, 0, 0.64739347, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_h4sqd")
 mesh = SubResource("ArrayMesh_ds3i6")
 skeleton = NodePath("")

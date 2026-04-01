@@ -12,6 +12,6 @@ public partial class PathFollow3d : PathFollow3D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-        Progress += 10 * (float)delta;
+        Progress += 5 * (float)delta;
     }
 }

@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://bph26y5a13yer"]
+
+[ext_resource type="PackedScene" uid="uid://brwe257nnffsv" path="res://scenes/bottom_bum.tscn" id="1_2nkj3"]
+[ext_resource type="Script" uid="uid://ckwfkx3ro2a7c" path="res://scripts/BurgerIcon.cs" id="1_lgumy"]
+[ext_resource type="PackedScene" uid="uid://c0crt7drkues5" path="res://scenes/cheese.tscn" id="2_f86x1"]
+[ext_resource type="PackedScene" uid="uid://deltl7uat2fka" path="res://scenes/lettuce.tscn" id="3_wgk86"]
+[ext_resource type="PackedScene" uid="uid://bqba06tt6sq3r" path="res://scenes/patty.tscn" id="4_d18yk"]
+[ext_resource type="PackedScene" uid="uid://bia8v4qycxwr7" path="res://scenes/top_bun.tscn" id="5_2xyfs"]
+[ext_resource type="PackedScene" uid="uid://c8phhuv116mqa" path="res://scenes/tomato.tscn" id="6_cx8o4"]
+
+[node name="Node" type="Node" node_paths=PackedStringArray("subViewport", "modelContainer", "camera")]
+script = ExtResource("1_lgumy")
+subViewport = NodePath("SubViewport")
+modelContainer = NodePath("SubViewport/ModelCollection")
+camera = NodePath("SubViewport/Camera3D")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+own_world_3d = true
+transparent_bg = true
+msaa_2d = 1
+msaa_3d = 1
+size = Vector2i(200, 200)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(0.99992836, 0.00028081992, -0.01196938, 0, 0.9997249, 0.023455076, 0.011972673, -0.023453394, 0.9996533, 0, 0.46545798, 1.1471462)
+current = true
+
+[node name="Sky" type="DirectionalLight3D" parent="SubViewport"]
+transform = Transform3D(0.70710677, -0.35355335, 0.6123724, -1.4901161e-08, 0.8660254, 0.5, -0.70710677, -0.3535534, 0.6123724, -11.5, 48, 9.5)
+light_energy = 20.0
+sky_mode = 2
+
+[node name="Sun" type="DirectionalLight3D" parent="SubViewport"]
+transform = Transform3D(0.6830127, -0.56565017, 0.4620969, 0.18301262, 0.74501, 0.6414566, -0.70710677, -0.35355347, 0.61237246, -11.5, 48, 9.5)
+light_energy = 0.6
+shadow_enabled = true
+shadow_blur = 1.34
+sky_mode = 1
+
+[node name="ModelCollection" type="Node3D" parent="SubViewport"]
+unique_name_in_owner = true
+
+[node name="BottomBum" parent="SubViewport/ModelCollection" instance=ExtResource("1_2nkj3")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021318346, 0)
+
+[node name="Cheese" parent="SubViewport/ModelCollection" instance=ExtResource("2_f86x1")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18622166, 0)
+
+[node name="Lettuce" parent="SubViewport/ModelCollection" instance=ExtResource("3_wgk86")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44737393, 0)
+
+[node name="Patty" parent="SubViewport/ModelCollection" instance=ExtResource("4_d18yk")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18494844, 0)
+
+[node name="TopBun" parent="SubViewport/ModelCollection" instance=ExtResource("5_2xyfs")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56900847, 0)
+
+[node name="Tomato1" parent="SubViewport/ModelCollection" instance=ExtResource("6_cx8o4")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16530967, 0.5103672, 0.16887498)
+
+[node name="Tomato2" parent="SubViewport/ModelCollection" instance=ExtResource("6_cx8o4")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1607346, 0.51, 0.16848102)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37518847, 1.1920398)
+omni_range = 10.0
+omni_attenuation = 2.0

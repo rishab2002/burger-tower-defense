@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 
 
-public partial class FloorHighlight : Node3D
+public partial class HighlightArea : Node3D
 {
 
     private struct Rectangle
@@ -34,6 +34,7 @@ public partial class FloorHighlight : Node3D
     }
 
     private List<Rectangle> rectangles;
+    private HashSet<Vector2I> occupiedSpaces = new HashSet<Vector2I>();
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -74,12 +75,16 @@ public partial class FloorHighlight : Node3D
                 rectangles.Add(new Rectangle(min2D, max2D));
             }
         }
-        
     }
 
     public bool isInside(Vector2 pos)
     
     {
+        if (this.isOccupied(pos))
+        {
+            return false;
+        }
+
         foreach (Rectangle rectangle in rectangles)
         {
             if (rectangle.isInside(pos))
@@ -90,5 +95,19 @@ public partial class FloorHighlight : Node3D
         }
         GD.Print("not");
         return false;
+    }
+
+    public bool isOccupied(Vector2 pos)
+    {
+        if (occupiedSpaces.Contains((Vector2I)pos.Floor()))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public void setOccupied(Vector2 occupied)
+    {
+        occupiedSpaces.Add( (Vector2I)occupied.Floor()); 
     }
 }
