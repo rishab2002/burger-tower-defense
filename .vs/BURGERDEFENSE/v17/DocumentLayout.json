@@ -7,6 +7,18 @@
       "RelativeMoniker": "D:0:0:{3BF9D8AD-F620-4064-9784-75C69B3BC992}|BurgerDefense.csproj|solutionrelative:scripts\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\BurgerIcon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:scripts\\BurgerIcon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\Viewport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:scripts\\Viewport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\BurgerDisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:scripts\\BurgerDisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3BF9D8AD-F620-4064-9784-75C69B3BC992}|BurgerDefense.csproj|c:\\users\\bertram\\documents\\documents\\burger-defense\\scripts\\sidemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3BF9D8AD-F620-4064-9784-75C69B3BC992}|BurgerDefense.csproj|solutionrelative:scripts\\sidemenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -38,11 +50,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "BurgerDisplay.cs",
+              "DocumentMoniker": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\BurgerDisplay.cs",
+              "RelativeDocumentMoniker": "scripts\\BurgerDisplay.cs",
+              "ToolTip": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\BurgerDisplay.cs",
+              "RelativeToolTip": "scripts\\BurgerDisplay.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T04:22:51.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "SideMenu.cs",
               "DocumentMoniker": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\SideMenu.cs",
               "RelativeDocumentMoniker": "scripts\\SideMenu.cs",
@@ -54,7 +79,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Kitchen.cs",
               "DocumentMoniker": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\Kitchen.cs",
               "RelativeDocumentMoniker": "scripts\\Kitchen.cs",
@@ -66,7 +91,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "SinkDisplayer.cs",
               "DocumentMoniker": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scenes\\SinkDisplayer.cs",
               "RelativeDocumentMoniker": "scenes\\SinkDisplayer.cs",
@@ -78,7 +103,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "SinkPlacementSystem.cs",
               "DocumentMoniker": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\SinkPlacementSystem.cs",
               "RelativeDocumentMoniker": "scripts\\SinkPlacementSystem.cs",
@@ -90,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "HighlightArea.cs",
               "DocumentMoniker": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\HighlightArea.cs",
               "RelativeDocumentMoniker": "scripts\\HighlightArea.cs",
@@ -102,7 +127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Tower.cs",
               "DocumentMoniker": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\Tower.cs",
               "RelativeDocumentMoniker": "scripts\\Tower.cs",
@@ -120,9 +145,35 @@
               "RelativeDocumentMoniker": "scripts\\GameController.cs",
               "ToolTip": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\GameController.cs",
               "RelativeToolTip": "scripts\\GameController.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAowEcAAABOAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAQwCUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-28T00:08:19.992Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BurgerIcon.cs",
+              "DocumentMoniker": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\BurgerIcon.cs",
+              "RelativeDocumentMoniker": "scripts\\BurgerIcon.cs",
+              "ToolTip": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\BurgerIcon.cs",
+              "RelativeToolTip": "scripts\\BurgerIcon.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T04:56:01.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Viewport.cs",
+              "DocumentMoniker": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\Viewport.cs",
+              "RelativeDocumentMoniker": "scripts\\Viewport.cs",
+              "ToolTip": "C:\\Users\\Bertram\\Documents\\Documents\\burger-defense\\scripts\\Viewport.cs",
+              "RelativeToolTip": "scripts\\Viewport.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T05:32:28.413Z",
               "EditorCaption": ""
             }
           ]

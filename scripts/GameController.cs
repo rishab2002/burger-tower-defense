@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 
-public partial class GameController : Node3D
+public partial class GameController : Node
 {
+    [Export] private BurgerIcon burgerIcon;
+
     private enum Button
     {
         None,
