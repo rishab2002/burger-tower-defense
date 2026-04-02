@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://ur3tqvv7wswv"]
+[gd_scene load_steps=78 format=3 uid="uid://ur3tqvv7wswv"]
 
 [ext_resource type="Script" uid="uid://s24xph0flbb4" path="res://scripts/GameController.cs" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://fa6dpk7yxn2c" path="res://scenes/kitchen.tscn" id="1_o5qli"]
@@ -7,11 +7,16 @@
 [ext_resource type="Theme" uid="uid://dg4iw7s24ixwt" path="res://Themes/menu_theme.tres" id="3_trceg"]
 [ext_resource type="Script" uid="uid://cmsl888vv6cun" path="res://scripts/SideMenu.cs" id="4_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://bph26y5a13yer" path="res://scenes/BurgerIcon.tscn" id="5_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://dtvrih6wx2gj8" path="res://icons/BottleRed.png" id="5_muem4"]
 [ext_resource type="Script" uid="uid://68p4m1yglhu7" path="res://scripts/PathFollow3d.cs" id="5_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://deltl7uat2fka" path="res://scenes/lettuce.tscn" id="6_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://ct44mfiack5ck" path="res://icons/BottleYellow.png" id="6_yc10j"]
+[ext_resource type="Texture2D" uid="uid://ceat0u26sngpp" path="res://icons/BottleBrown.png" id="7_jscy8"]
 [ext_resource type="PackedScene" uid="uid://c0crt7drkues5" path="res://scenes/cheese.tscn" id="7_trceg"]
 [ext_resource type="PackedScene" uid="uid://bia8v4qycxwr7" path="res://scenes/top_bun.tscn" id="8_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://btam62cxdt2bm" path="res://icons/BottleWheat.png" id="8_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://c8phhuv116mqa" path="res://scenes/tomato.tscn" id="9_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://bdmmkxpikjom7" path="res://icons/BottleGreen.png" id="9_y6deb"]
 [ext_resource type="PackedScene" uid="uid://bqba06tt6sq3r" path="res://scenes/patty.tscn" id="10_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://brwe257nnffsv" path="res://scenes/bottom_bum.tscn" id="11_muem4"]
 [ext_resource type="PackedScene" uid="uid://bwtajtq5gr685" path="res://scenes/highlight_area.tscn" id="11_ya4ey"]
@@ -42,6 +47,38 @@ VBoxContainer/constants/separation = 10
 
 [sub_resource type="Theme" id="Theme_jyhfs"]
 Label/font_sizes/font_size = 28
+
+[sub_resource type="Theme" id="Theme_muem4"]
+MarginContainer/constants/margin_bottom = 15
+MarginContainer/constants/margin_left = 15
+MarginContainer/constants/margin_right = 15
+MarginContainer/constants/margin_top = 15
+
+[sub_resource type="Theme" id="Theme_jbj1t"]
+VBoxContainer/constants/separation = 12
+
+[sub_resource type="Theme" id="Theme_jscy8"]
+Label/font_sizes/font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp3eg"]
+bg_color = Color(0.011087578, 0.01108758, 0.011087572, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 12
+
+[sub_resource type="Theme" id="Theme_0ld40"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_dp3eg")
+
+[sub_resource type="Theme" id="Theme_gqmmt"]
+
+[sub_resource type="Theme" id="Theme_dp3eg"]
+VBoxContainer/constants/separation = 0
+
+[sub_resource type="Theme" id="Theme_yc10j"]
+MarginContainer/constants/margin_bottom = 0
+MarginContainer/constants/margin_top = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8y0u"]
 bg_color = Color(0.9448018, 0.8643856, 0.7696091, 1)
@@ -325,12 +362,100 @@ layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 14.0
-offset_top = 139.0
-offset_right = 232.0
-offset_bottom = -111.0
+offset_top = 136.0
+offset_right = 218.0
+offset_bottom = -108.0
 grow_vertical = 2
 theme = ExtResource("3_trceg")
 script = ExtResource("4_a8y0u")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/SideMenu"]
+layout_mode = 2
+theme = SubResource("Theme_muem4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/SideMenu/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_jbj1t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/SideMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/SideMenu/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_jscy8")
+text = "Tower"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="UI/SideMenu/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "Upgrade"
+
+[node name="Button2" type="Button" parent="UI/SideMenu/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "Upgrade"
+
+[node name="Button3" type="Button" parent="UI/SideMenu/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "Upgrade"
+
+[node name="Control2" type="Control" parent="UI/SideMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Color Menu" type="PanelContainer" parent="UI/SideMenu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme = SubResource("Theme_0ld40")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu"]
+layout_mode = 2
+theme = SubResource("Theme_gqmmt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dp3eg")
+
+[node name="Label3" type="Label" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_jyhfs")
+text = "Color"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_yc10j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dp3eg")
+
+[node name="TextureRect2" type="TextureRect" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_muem4")
+expand_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_yc10j")
+expand_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_jscy8")
+expand_mode = 5
+
+[node name="TextureRect5" type="TextureRect" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_pm3ni")
+expand_mode = 5
+
+[node name="TextureRect6" type="TextureRect" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_y6deb")
+expand_mode = 5
 
 [node name="BurgerDisplay" type="PanelContainer" parent="UI"]
 layout_mode = 1
