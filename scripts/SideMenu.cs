@@ -11,7 +11,7 @@ public partial class SideMenu : Godot.PanelContainer
 	public override void _Ready()
 	{
 		shownPosition = this.Position;
-		hiddenPosition = this.Position - new Vector2(200, 0);
+		hiddenPosition = this.Position - new Vector2(225, 0);
 		this.Position = hiddenPosition;
 		isHidden = false;
 	}

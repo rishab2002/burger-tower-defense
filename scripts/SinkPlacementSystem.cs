@@ -67,13 +67,13 @@ public partial class SinkPlacementSystem : Node3D
         Vector2 towerPos2D = new Vector2(towerPos.X, towerPos.Z);
         HighlightArea countertopA = this.GetNode<HighlightArea>("%SinkHighlightA");
         HighlightArea countertopB = this.GetNode<HighlightArea>("%SinkHighlightB");
-        if (countertopA.isInside(towerPos2D))
+        if (countertopA.IsInside(towerPos2D))
         {
             towerPos2D = (towerPos2D / 2).Floor() * 2;
-            if (!(countertopA.isOccupied(towerPos2D) ||
-                (countertopA.isOccupied(towerPos2D + new Vector2(0, 1))) ||
-                (countertopA.isOccupied(towerPos2D + new Vector2(1, 1))) ||
-                (countertopA.isOccupied(towerPos2D + new Vector2(1, 0)))))
+            if (!(countertopA.IsOccupied(towerPos2D) ||
+                (countertopA.IsOccupied(towerPos2D + new Vector2(0, 1))) ||
+                (countertopA.IsOccupied(towerPos2D + new Vector2(1, 1))) ||
+                (countertopA.IsOccupied(towerPos2D + new Vector2(1, 0)))))
             {
                 towerPos.X = towerPos2D.X + 1;
                 towerPos.Z = towerPos2D.Y + 1;
@@ -87,13 +87,13 @@ public partial class SinkPlacementSystem : Node3D
 
             }
         }
-        else if (countertopB.isInside(towerPos2D))
+        else if (countertopB.IsInside(towerPos2D))
         {
             towerPos2D = (((towerPos2D + new Vector2(0, 1)) / 2).Floor() * 2) - new Vector2(0, 1);
-            if (!(countertopB.isOccupied(towerPos2D) ||
-                 (countertopB.isOccupied(towerPos2D + new Vector2(0, 1))) ||
-                 (countertopB.isOccupied(towerPos2D + new Vector2(1, 1))) ||
-                 (countertopB.isOccupied(towerPos2D + new Vector2(1, 0)))))
+            if (!(countertopB.IsOccupied(towerPos2D) ||
+                 (countertopB.IsOccupied(towerPos2D + new Vector2(0, 1))) ||
+                 (countertopB.IsOccupied(towerPos2D + new Vector2(1, 1))) ||
+                 (countertopB.IsOccupied(towerPos2D + new Vector2(1, 0)))))
             {
                 towerPos.X = towerPos2D.X + 1;
                 towerPos.Z = towerPos2D.Y + 1;

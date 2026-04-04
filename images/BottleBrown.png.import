@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtvrih6wx2gj8"
-path="res://.godot/imported/BottleRed.png-c0ab69c231ffe5c910342461a45fbda7.ctex"
+uid="uid://ceat0u26sngpp"
+path="res://.godot/imported/BottleBrown.png-bf8478edc03e3e3045ac8014cae3b954.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/BottleRed.png"
-dest_files=["res://.godot/imported/BottleRed.png-c0ab69c231ffe5c910342461a45fbda7.ctex"]
+source_file="res://images/BottleBrown.png"
+dest_files=["res://.godot/imported/BottleBrown.png-bf8478edc03e3e3045ac8014cae3b954.ctex"]
 
 [params]
 

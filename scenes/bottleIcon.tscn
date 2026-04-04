@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://qd3xj570l7xk"]
+
+[ext_resource type="Texture2D" uid="uid://dtvrih6wx2gj8" path="res://images/BottleRed.png" id="1_e8dab"]
+[ext_resource type="Script" uid="uid://nw553343oq61" path="res://scripts/Icon.cs" id="2_wgkl1"]
+
+[node name="Icon" type="TextureRect"]
+texture = ExtResource("1_e8dab")
+expand_mode = 5
+script = ExtResource("2_wgkl1")
+
+[connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="." to="." method="OnMouseExited"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxsrbm4l7n6d4"]
+[gd_scene load_steps=4 format=3 uid="uid://dxsrbm4l7n6d4"]
 
 [ext_resource type="PackedScene" uid="uid://b2i4e4xlmliml" path="res://scenes/tower.tscn" id="1_bvso7"]
 [ext_resource type="PackedScene" uid="uid://8u0poduwg0ah" path="res://assets/kitchenAssets/gltf/fridge_A_decorated.gltf" id="2_gw5rc"]
+[ext_resource type="Script" uid="uid://dirorpb4giv1" path="res://scenes/IceTower.cs" id="2_k61kt"]
 
 [node name="IceTower" instance=ExtResource("1_bvso7")]
+script = ExtResource("2_k61kt")
 
 [node name="fridge_A_decorated2" parent="." index="0" instance=ExtResource("2_gw5rc")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

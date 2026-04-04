@@ -46,9 +46,11 @@ public partial class GameController : Node
     public override void _Process(double delta)
 	{
 
-	}
 
-    private Vector3? getMouseIntersection(Plane plane)
+
+    }
+
+    private Vector3? GetMouseIntersection(Plane plane)
     {
         Vector2 mousePos = GetViewport().GetMousePosition();
         Vector3 rayOrigin = camera.ProjectRayOrigin(mousePos);
@@ -57,9 +59,9 @@ public partial class GameController : Node
         return intersection;
     }
 
-    private void displayTowerHighlight()
+    private void DisplayTowerHighlight()
     {
-        Vector3? intersection = getMouseIntersection(floorPlane);
+        Vector3? intersection = GetMouseIntersection(floorPlane);
         if (intersection != null)
         {
             Vector3 pos = intersection.Value;
@@ -70,23 +72,23 @@ public partial class GameController : Node
                 Vector2 towerPos2D = new Vector2(tower.Position.X, tower.Position.Z);
                 if (towerPos2D.Floor() == pos2D.Floor() && tower != selectedTower)
                 {
-                    tower.highlight();
+                    tower.Highlight();
                     if (highlightedTower != null && highlightedTower != tower)
                     {
-                        highlightedTower.unHighlight();
+                        highlightedTower.UnHighlight();
                     }
                     highlightedTower = tower;
                 }
                 else if (tower == highlightedTower)
                 {
-                    tower.unHighlight();
+                    tower.UnHighlight();
                     highlightedTower = null;
 
                 }
             }
         }
 
-        intersection = getMouseIntersection(counterPlane);
+        intersection = GetMouseIntersection(counterPlane);
         if (intersection != null)
         {
             Vector3 pos = intersection.Value;
@@ -98,50 +100,50 @@ public partial class GameController : Node
                 Vector2 difference = towerPos2D - pos2D;
                 if (Mathf.Abs(difference.X) <= 0.8 && Mathf.Abs(difference.Y) <= 0.8 && tower != selectedTower)
                 {
-                    tower.highlight();
+                    tower.Highlight();
                     if (highlightedTower != null && highlightedTower != tower)
                     {
-                        highlightedTower.unHighlight();
+                        highlightedTower.UnHighlight();
                     }
                     highlightedTower = tower;
                 }
                 else if (tower == highlightedTower)
                 {
-                    tower.unHighlight();
+                    tower.UnHighlight();
                     highlightedTower = null;
                 }
             }
         }
     }
 
-    public void selectTower()
+    public void SelectTower()
     {
         if (selectedTower != null)
         {
-            selectedTower.hideVisibility();
+            selectedTower.HideRange();
         }
 
         selectedTower = highlightedTower;
         highlightedTower = null;
         if (selectedTower != null)
         {
-            selectedTower.showVisibility();
-            selectedTower.unHighlight();
+            selectedTower.ShowRange();
+            selectedTower.UnHighlight();
         }
 
     }
 
 
-    private void displayTowerOnFloor()
+    private void DisplayTowerOnFloor()
     {
-        Vector3? intersection = getMouseIntersection(floorPlane);
+        Vector3? intersection = GetMouseIntersection(floorPlane);
 
         if (intersection != null)
         {
             Vector3 towerPos = intersection.Value;
             Vector2 towerPos2D = new Vector2(towerPos.X, towerPos.Z);
             HighlightArea floor = this.GetNode<HighlightArea>("%FloorHighlight");
-            if (floor.isInside(towerPos2D))
+            if (floor.IsInside(towerPos2D))
             {
                 placementIsValid = true;
                 towerPos.X = Mathf.Floor(towerPos.X) + 0.5f;
@@ -158,9 +160,9 @@ public partial class GameController : Node
         }
     }
 
-    private void displayStoveTower()
+    private void DisplayStoveTower()
     {
-        Vector3? intersection = getMouseIntersection(counterPlane);
+        Vector3? intersection = GetMouseIntersection(counterPlane);
 
         if (intersection != null)
         {
@@ -168,11 +170,11 @@ public partial class GameController : Node
             Vector2 towerPos2D = new Vector2(towerPos.X, towerPos.Z);
             HighlightArea countertop = this.GetNode<HighlightArea>("%CounterHighlight");
 
-            if (countertop.isInside(towerPos2D))
+            if (countertop.IsInside(towerPos2D))
             {
-                if (countertop.isInside(towerPos2D + new Vector2(1f, 1f)) &&
-                    countertop.isInside(towerPos2D + new Vector2(1f, 0f)) &&
-                    countertop.isInside(towerPos2D + new Vector2(0f, 1f)))
+                if (countertop.IsInside(towerPos2D + new Vector2(1f, 1f)) &&
+                    countertop.IsInside(towerPos2D + new Vector2(1f, 0f)) &&
+                    countertop.IsInside(towerPos2D + new Vector2(0f, 1f)))
                 {
                     placementIsValid = true;
                     towerPos.X = Mathf.Floor(towerPos.X) + 1f;
@@ -180,9 +182,9 @@ public partial class GameController : Node
                     towerPos.Y = 0.5f;
                     newTower.Position = towerPos;
                 }
-                else if (countertop.isInside(towerPos2D + new Vector2(1f, -1f)) &&
-                    countertop.isInside(towerPos2D + new Vector2(1f, 0f)) &&
-                    countertop.isInside(towerPos2D + new Vector2(0f, -1f)))
+                else if (countertop.IsInside(towerPos2D + new Vector2(1f, -1f)) &&
+                    countertop.IsInside(towerPos2D + new Vector2(1f, 0f)) &&
+                    countertop.IsInside(towerPos2D + new Vector2(0f, -1f)))
                 {
                     placementIsValid = true;
                     towerPos.X = Mathf.Floor(towerPos.X) + 1f;
@@ -190,9 +192,9 @@ public partial class GameController : Node
                     towerPos.Y = 0.5f;
                     newTower.Position = towerPos;
                 }
-                else if (countertop.isInside(towerPos2D + new Vector2(-1f, 1f)) &&
-                    countertop.isInside(towerPos2D + new Vector2(-1f, 0f)) &&
-                    countertop.isInside(towerPos2D + new Vector2(0f, 1f)))
+                else if (countertop.IsInside(towerPos2D + new Vector2(-1f, 1f)) &&
+                    countertop.IsInside(towerPos2D + new Vector2(-1f, 0f)) &&
+                    countertop.IsInside(towerPos2D + new Vector2(0f, 1f)))
                 {
                     placementIsValid = true;
                     towerPos.X = Mathf.Floor(towerPos.X);
@@ -200,9 +202,9 @@ public partial class GameController : Node
                     towerPos.Y = 0.5f;
                     newTower.Position = towerPos;
                 }
-                else if (countertop.isInside(towerPos2D + new Vector2(-1f, -1f)) &&
-                    countertop.isInside(towerPos2D + new Vector2(-1f, 0f)) &&
-                    countertop.isInside(towerPos2D + new Vector2(0f, -1f)))
+                else if (countertop.IsInside(towerPos2D + new Vector2(-1f, -1f)) &&
+                    countertop.IsInside(towerPos2D + new Vector2(-1f, 0f)) &&
+                    countertop.IsInside(towerPos2D + new Vector2(0f, -1f)))
                 {
                     placementIsValid = true;
                     towerPos.X = Mathf.Floor(towerPos.X);
@@ -221,9 +223,9 @@ public partial class GameController : Node
         }
     }
 
-    void displaySinkTower()
+    void DisplaySinkTower()
     {
-        Vector3? intersection = getMouseIntersection(counterPlane);
+        Vector3? intersection = GetMouseIntersection(counterPlane);
 
         if (intersection != null)
         {
@@ -248,7 +250,7 @@ public partial class GameController : Node
         }
     }
 
-    public void highlightFloor()
+    public void HighlightFloor()
     {
         this.GetNode<Node3D>("%FloorHighlight").Visible = true;
         this.GetNode<Node3D>("%CounterHighlight").Visible = false;
@@ -256,7 +258,7 @@ public partial class GameController : Node
         this.GetNode<Node3D>("%SinkHighlightB").Visible = false;
     }
 
-    public void highlightCounters()
+    public void HighlightCounters()
     {
         this.GetNode<Node3D>("%CounterHighlight").Visible = true;
         this.GetNode<Node3D>("%FloorHighlight").Visible = false;
@@ -264,7 +266,7 @@ public partial class GameController : Node
         this.GetNode<Node3D>("%SinkHighlightB").Visible = false;
     }
 
-    public void highlightSinkArea()
+    public void HighlightSinkArea()
     {
         this.GetNode<Node3D>("%SinkHighlightA").Visible = true;
         this.GetNode<Node3D>("%SinkHighlightB").Visible = true;
@@ -272,7 +274,7 @@ public partial class GameController : Node
         this.GetNode<Node3D>("%CounterHighlight").Visible = false;
     }
 
-    public void removeHighlights()
+    public void RemoveHighlights()
     {
         this.GetNode<Node3D>("%FloorHighlight").Visible = false;
         this.GetNode<Node3D>("%CounterHighlight").Visible = false;
@@ -280,7 +282,7 @@ public partial class GameController : Node
         this.GetNode<Node3D>("%SinkHighlightB").Visible = false;
     }
 
-    public void onSilverwareButtonPressed()
+    public void OnSilverwareButtonPressed()
     {
         if (newTower != null)
         {
@@ -291,21 +293,22 @@ public partial class GameController : Node
         if (pressedButton != Button.Silverware)
         {
             newTower = (Tower)_silverwareTower.Instantiate();
+            newTower.SetFundUpdateSingal(this.GetNode<FundsLabel>("%FundsLabel"));
             this.AddChild(newTower);
-            this.highlightFloor();
+            this.HighlightFloor();
             pressedButton = Button.Silverware;
         }
         else
         {
            
 
-            this.removeHighlights();
+            this.RemoveHighlights();
             pressedButton = Button.None;
         }
 
     }
 
-    public void onIceButtonPressed()
+    public void OnIceButtonPressed()
     {
         if (newTower != null)
         {
@@ -316,19 +319,20 @@ public partial class GameController : Node
         if (pressedButton != Button.Ice)
         {
             newTower = (Tower)_iceTower.Instantiate();
+            newTower.SetFundUpdateSingal(this.GetNode<FundsLabel>("%FundsLabel"));
             this.AddChild(newTower);
-            this.highlightFloor();
+            this.HighlightFloor();
             pressedButton = Button.Ice;
         }
         else
         {
             
-            this.removeHighlights();
+            this.RemoveHighlights();
             pressedButton = Button.None;
         }
     }
 
-    public void onStoveButtonPressed()
+    public void OnStoveButtonPressed()
     {
         if (newTower != null)
         {
@@ -339,19 +343,20 @@ public partial class GameController : Node
         if (pressedButton != Button.Stove)
         {
             newTower = (Tower)_stoveTower.Instantiate();
+            newTower.SetFundUpdateSingal(this.GetNode<FundsLabel>("%FundsLabel"));
             this.AddChild(newTower);
-            this.highlightCounters();
+            this.HighlightCounters();
             pressedButton = Button.Stove;
         }
         else
         {
 
-            this.removeHighlights();
+            this.RemoveHighlights();
             pressedButton = Button.None;
         }
     }
 
-    public void onSinkButtonPressed()
+    public void OnSinkButtonPressed()
     {
         if (newTower != null)
         {
@@ -361,19 +366,20 @@ public partial class GameController : Node
         if (pressedButton != Button.Sink)
         {
             newTower = (Tower)_sinkTower.Instantiate();
+            newTower.SetFundUpdateSingal(this.GetNode<FundsLabel>("%FundsLabel"));
             this.AddChild(newTower);
-            this.highlightSinkArea();
+            this.HighlightSinkArea();
             pressedButton = Button.Sink;
         }
         else
         {
             
-            this.removeHighlights();
+            this.RemoveHighlights();
             pressedButton = Button.None;
         }
     }
 
-    public void onChefButtonPressed()
+    public void OnChefButtonPressed()
     {
         if (newTower != null)
         {
@@ -383,20 +389,21 @@ public partial class GameController : Node
         if (pressedButton != Button.Chef)
         {
             newTower = (Tower)_chefTower.Instantiate();
+            newTower.SetFundUpdateSingal(this.GetNode<FundsLabel>("%FundsLabel"));
             this.AddChild(newTower);
-            this.highlightFloor();
+            this.HighlightFloor();
             pressedButton = Button.Chef;
         }
         else
         {
             
-            this.removeHighlights();
+            this.RemoveHighlights();
             pressedButton = Button.None;
         }
     }
 
 
-    public void onTopMenuGuiInput(InputEvent e)
+    public void OnTopMenuGuiInput(InputEvent e)
     {
         if (e is InputEventMouseButton mouseEvent && mouseEvent.Pressed)
         {
@@ -405,7 +412,7 @@ public partial class GameController : Node
                 newTower.QueueFree();
                 newTower = null;
             }
-            this.removeHighlights();
+            this.RemoveHighlights();
             this.pressedButton = Button.None;
 
         }
@@ -424,16 +431,16 @@ public partial class GameController : Node
                 case Button.Chef:
                 case Button.Silverware:
                 case Button.Ice:
-                    displayTowerOnFloor();
+                    DisplayTowerOnFloor();
                     break;
                 case Button.Stove:
-                    displayStoveTower();
+                    DisplayStoveTower();
                     break;
                 case Button.Sink:
-                    displaySinkTower();
+                    DisplaySinkTower();
                     break;
                 case Button.None:
-                    displayTowerHighlight();
+                    DisplayTowerHighlight();
                     break;
             }
         }
@@ -444,7 +451,7 @@ public partial class GameController : Node
 
                 if (newTower != null)
                 {
-                    newTower.hideVisibility();
+                    newTower.HideRange();
                 }
 
                 switch (pressedButton)
@@ -455,7 +462,7 @@ public partial class GameController : Node
 
                         floorTowerList.Add(newTower);
 
-                        this.GetNode<HighlightArea>("%FloorHighlight").setOccupied(new Vector2(newTower.Position.X, newTower.Position.Z));
+                        this.GetNode<HighlightArea>("%FloorHighlight").SetOccupied(new Vector2(newTower.Position.X, newTower.Position.Z));
 
 
 
@@ -468,38 +475,68 @@ public partial class GameController : Node
                         HighlightArea counter1 = this.GetNode<HighlightArea>("%CounterHighlight");
                         HighlightArea counter2 = this.GetNode<HighlightArea>("%SinkHighlightA");
                         HighlightArea counter3 = this.GetNode<HighlightArea>("%SinkHighlightB");
-                        counter1.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z + 0.5f));
-                        counter1.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z + 0.5f));
-                        counter1.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z - 0.5f));
-                        counter1.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z - 0.5f));
-                        counter2.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z + 0.5f));
-                        counter2.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z + 0.5f));
-                        counter2.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z - 0.5f));
-                        counter2.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z - 0.5f));
-                        counter3.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z + 0.5f));
-                        counter3.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z + 0.5f));
-                        counter3.setOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z - 0.5f));
-                        counter3.setOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z - 0.5f));
+                        counter1.SetOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z + 0.5f));
+                        counter1.SetOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z + 0.5f));
+                        counter1.SetOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z - 0.5f));
+                        counter1.SetOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z - 0.5f));
+                        counter2.SetOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z + 0.5f));
+                        counter2.SetOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z + 0.5f));
+                        counter2.SetOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z - 0.5f));
+                        counter2.SetOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z - 0.5f));
+                        counter3.SetOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z + 0.5f));
+                        counter3.SetOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z + 0.5f));
+                        counter3.SetOccupied(new Vector2(newTower.Position.X + 0.5f, newTower.Position.Z - 0.5f));
+                        counter3.SetOccupied(new Vector2(newTower.Position.X - 0.5f, newTower.Position.Z - 0.5f));
                         break;
                 }
 
+
+                int cost = 0;
+                switch (pressedButton)
+                {
+                    case Button.Chef:
+                        cost = this.GetNode<PriceTag>("%ChefTowerPrice").getPrice();
+                        break;
+                    case Button.Silverware:
+                        cost = this.GetNode<PriceTag>("%SilverwareTowerPrice").getPrice();
+                        break;
+                    case Button.Ice:
+                        cost = this.GetNode<PriceTag>("%IceTowerPrice").getPrice();
+                        break;
+                    case Button.Stove:
+                        cost = this.GetNode<PriceTag>("%StoveTowerPrice").getPrice();
+                        break;
+                    case Button.Sink:
+                        cost = this.GetNode<PriceTag>("%SinkTowerPrice").getPrice();
+                        break;
+                }
+
+                this.GetNode<FundsLabel>("%FundsLabel").reduceFunds(cost);
                 newTower = null;
                 placementIsValid = false;
-                this.removeHighlights();
+                this.RemoveHighlights();
                 pressedButton = Button.None;
                 this.GetNode<Kitchen>("%Kitchen").cleanup();
             }
             else if (Button.None == pressedButton)
             {
+                
                 if (highlightedTower != null)
                 {
+                    Control upgradeMenu = this.GetNode<Control>("%UpgradeMenu");
+                    foreach (Node child in upgradeMenu.GetChildren())
+                    {
+                        upgradeMenu.RemoveChild(child);
+                    }
+                    highlightedTower.displayMenu(upgradeMenu);
                     this.GetNode<SideMenu>("%SideMenu").slideIn();
                 }
                 else
                 {
                     this.GetNode<SideMenu>("%SideMenu").slideOut();
+
                 }
-                selectTower();
+                SelectTower();
             }
         }
     }

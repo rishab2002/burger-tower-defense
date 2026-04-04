@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btam62cxdt2bm"
-path="res://.godot/imported/BottleWheat.png-7fe9f150f8c3547ee0506b996bd485b0.ctex"
+uid="uid://bdmmkxpikjom7"
+path="res://.godot/imported/BottleGreen.png-00a1cff86fbde490f4a488be1b4ddb54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons/BottleWheat.png"
-dest_files=["res://.godot/imported/BottleWheat.png-7fe9f150f8c3547ee0506b996bd485b0.ctex"]
+source_file="res://images/BottleGreen.png"
+dest_files=["res://.godot/imported/BottleGreen.png-00a1cff86fbde490f4a488be1b4ddb54.ctex"]
 
 [params]
 
