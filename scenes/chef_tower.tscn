@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dls5btr2bednk"]
+[gd_scene load_steps=4 format=3 uid="uid://dls5btr2bednk"]
 
 [ext_resource type="PackedScene" uid="uid://b2i4e4xlmliml" path="res://scenes/tower.tscn" id="1_6q8sq"]
 [ext_resource type="PackedScene" uid="uid://kxq8tgfwdcgy" path="res://assets/chef_hat/chef_hat.gltf" id="2_1h35p"]
+[ext_resource type="Script" uid="uid://clcdhn540wa0u" path="res://scenes/ChefTower.cs" id="2_e2nb0"]
 
 [node name="ChefTower" instance=ExtResource("1_6q8sq")]
+script = ExtResource("2_e2nb0")
 
 [node name="Sketchfab_Scene" parent="." index="1" instance=ExtResource("2_1h35p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014, 0.5, 0)

@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8o2rankutyak"]
+
+[ext_resource type="FontFile" uid="uid://xu75dm4blpnm" path="res://fonts/JotiOne-Regular.ttf" id="1_utgwe"]
+[ext_resource type="Script" uid="uid://b66riqn3pwlq4" path="res://scenes/PriceTag.cs" id="2_h3uy6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utgwe"]
+bg_color = Color(0, 0.6107958, 0.3125577, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 1
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="Theme" id="Theme_h3uy6"]
+Label/constants/outline_size = 5
+Label/constants/shadow_offset_x = 0
+Label/constants/shadow_offset_y = 0
+Label/constants/shadow_outline_size = 10
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("1_utgwe")
+Label/styles/normal = SubResource("StyleBoxFlat_utgwe")
+
+[node name="Price Tag" type="Label"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -14.0
+offset_right = 20.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_h3uy6")
+text = "$"
+horizontal_alignment = 1
+script = ExtResource("2_h3uy6")

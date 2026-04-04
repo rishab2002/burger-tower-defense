@@ -22,7 +22,7 @@ public partial class HighlightArea : Node3D
             this.bottomLeft = bottomLeft;
         }
 
-        public bool isInside(Vector2 point)
+        public bool IsInside(Vector2 point)
         {
             if (point.X >= bottomLeft.X && point.Y >= bottomLeft.Y &&
                 point.X <= topRight.X && point.Y <= topRight.Y)
@@ -39,7 +39,7 @@ public partial class HighlightArea : Node3D
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-        setRectangles();
+        SetRectangles();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,7 +49,7 @@ public partial class HighlightArea : Node3D
 	}
 
 
-	public void setRectangles()
+	public void SetRectangles()
 	{
         rectangles = new List<Rectangle>();
         
@@ -77,27 +77,27 @@ public partial class HighlightArea : Node3D
         }
     }
 
-    public bool isInside(Vector2 pos)
+    public bool IsInside(Vector2 pos)
     
     {
-        if (this.isOccupied(pos))
+        if (this.IsOccupied(pos))
         {
             return false;
         }
 
         foreach (Rectangle rectangle in rectangles)
         {
-            if (rectangle.isInside(pos))
+            if (rectangle.IsInside(pos))
             {
-                GD.Print("inside");
+                //GD.Print("inside");
                 return true;
             }
         }
-        GD.Print("not");
+        //GD.Print("not");
         return false;
     }
 
-    public bool isOccupied(Vector2 pos)
+    public bool IsOccupied(Vector2 pos)
     {
         if (occupiedSpaces.Contains((Vector2I)pos.Floor()))
         {
@@ -106,7 +106,7 @@ public partial class HighlightArea : Node3D
         return false;
     }
 
-    public void setOccupied(Vector2 occupied)
+    public void SetOccupied(Vector2 occupied)
     {
         occupiedSpaces.Add( (Vector2I)occupied.Floor()); 
     }

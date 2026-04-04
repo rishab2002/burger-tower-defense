@@ -1,17 +1,27 @@
-[gd_scene load_steps=65 format=3 uid="uid://ur3tqvv7wswv"]
+[gd_scene load_steps=83 format=3 uid="uid://ur3tqvv7wswv"]
 
 [ext_resource type="Script" uid="uid://s24xph0flbb4" path="res://scripts/GameController.cs" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://fa6dpk7yxn2c" path="res://scenes/kitchen.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://dgd5lcfacyabs" path="res://scripts/Viewport.cs" id="3_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://b8o2rankutyak" path="res://scenes/price_tag.tscn" id="3_jscy8"]
 [ext_resource type="Material" uid="uid://cpxu3js8br25q" path="res://materials/blue_highlight.tres" id="3_jyhfs"]
+[ext_resource type="Theme" uid="uid://b55mp7c17gdtt" path="res://Themes/label_text.tres" id="3_pm3ni"]
 [ext_resource type="Theme" uid="uid://dg4iw7s24ixwt" path="res://Themes/menu_theme.tres" id="3_trceg"]
 [ext_resource type="Script" uid="uid://cmsl888vv6cun" path="res://scripts/SideMenu.cs" id="4_a8y0u"]
+[ext_resource type="Script" uid="uid://2e5xswjmoka5" path="res://scenes/FundsLabel.cs" id="4_og1vs"]
 [ext_resource type="PackedScene" uid="uid://bph26y5a13yer" path="res://scenes/BurgerIcon.tscn" id="5_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://qd3xj570l7xk" path="res://scenes/bottleIcon.tscn" id="5_muem4"]
+[ext_resource type="Theme" uid="uid://cecxx50isbk5f" path="res://Themes/button_theme.tres" id="5_y6deb"]
 [ext_resource type="Script" uid="uid://68p4m1yglhu7" path="res://scripts/PathFollow3d.cs" id="5_ya4ey"]
+[ext_resource type="Script" uid="uid://bxgmt4yqkmgds" path="res://scenes/TowerButton.cs" id="6_2wyq8"]
 [ext_resource type="PackedScene" uid="uid://deltl7uat2fka" path="res://scenes/lettuce.tscn" id="6_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://ct44mfiack5ck" path="res://images/BottleYellow.png" id="6_yc10j"]
+[ext_resource type="Texture2D" uid="uid://ceat0u26sngpp" path="res://images/BottleBrown.png" id="7_jscy8"]
 [ext_resource type="PackedScene" uid="uid://c0crt7drkues5" path="res://scenes/cheese.tscn" id="7_trceg"]
 [ext_resource type="PackedScene" uid="uid://bia8v4qycxwr7" path="res://scenes/top_bun.tscn" id="8_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://btam62cxdt2bm" path="res://images/BottleWheat.png" id="8_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://c8phhuv116mqa" path="res://scenes/tomato.tscn" id="9_jkv2x"]
+[ext_resource type="Texture2D" uid="uid://bdmmkxpikjom7" path="res://images/BottleGreen.png" id="9_y6deb"]
 [ext_resource type="PackedScene" uid="uid://bqba06tt6sq3r" path="res://scenes/patty.tscn" id="10_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://brwe257nnffsv" path="res://scenes/bottom_bum.tscn" id="11_muem4"]
 [ext_resource type="PackedScene" uid="uid://bwtajtq5gr685" path="res://scenes/highlight_area.tscn" id="11_ya4ey"]
@@ -37,11 +47,46 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_o5qli")
 [sub_resource type="Theme" id="Theme_o5qli"]
 HBoxContainer/constants/separation = 12
 
+[sub_resource type="Theme" id="Theme_pm3ni"]
+MarginContainer/constants/margin_left = 20
+
 [sub_resource type="Theme" id="Theme_sugp2"]
 VBoxContainer/constants/separation = 10
 
-[sub_resource type="Theme" id="Theme_jyhfs"]
-Label/font_sizes/font_size = 28
+[sub_resource type="Theme" id="Theme_y6deb"]
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 0
+MarginContainer/constants/margin_right = 0
+MarginContainer/constants/margin_top = 0
+
+[sub_resource type="Theme" id="Theme_muem4"]
+MarginContainer/constants/margin_bottom = 15
+MarginContainer/constants/margin_left = 15
+MarginContainer/constants/margin_right = 15
+MarginContainer/constants/margin_top = 15
+
+[sub_resource type="Theme" id="Theme_jbj1t"]
+VBoxContainer/constants/separation = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp3eg"]
+bg_color = Color(0.011087578, 0.01108758, 0.011087572, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 12
+
+[sub_resource type="Theme" id="Theme_0ld40"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_dp3eg")
+
+[sub_resource type="Theme" id="Theme_gqmmt"]
+
+[sub_resource type="Theme" id="Theme_dp3eg"]
+VBoxContainer/constants/separation = 0
+
+[sub_resource type="Theme" id="Theme_yc10j"]
+MarginContainer/constants/margin_bottom = 0
+MarginContainer/constants/margin_top = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8y0u"]
 bg_color = Color(0.9448018, 0.8643856, 0.7696091, 1)
@@ -236,7 +281,7 @@ textureRect = NodePath("BurgerDisplay/TextureRect")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 116.0
+offset_bottom = 129.0
 grow_horizontal = 2
 mouse_filter = 1
 theme = SubResource("Theme_0wfyh")
@@ -250,30 +295,38 @@ theme = SubResource("Theme_o5qli")
 layout_mode = 2
 mouse_filter = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="UI/Top Menu/HBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Top Menu/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_pm3ni")
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/Top Menu/HBoxContainer/HBoxContainer/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Top Menu/HBoxContainer/HBoxContainer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Top Menu/HBoxContainer/HBoxContainer/MarginContainer/CenterContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 mouse_filter = 2
 theme = SubResource("Theme_sugp2")
 
-[node name="Label" type="Label" parent="UI/Top Menu/HBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+[node name="FundsLabel" type="Label" parent="UI/Top Menu/HBoxContainer/HBoxContainer/MarginContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-theme = SubResource("Theme_jyhfs")
-text = "$ xxxx"
+theme = ExtResource("3_pm3ni")
+text = "$ 1000"
+script = ExtResource("4_og1vs")
 
-[node name="Label3" type="Label" parent="UI/Top Menu/HBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="UI/Top Menu/HBoxContainer/HBoxContainer/MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_jyhfs")
-text = "Round X"
+theme = ExtResource("3_pm3ni")
+text = "Round 1"
 
 [node name="Button" type="Button" parent="UI/Top Menu/HBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 mouse_filter = 1
+theme = ExtResource("5_y6deb")
+theme_override_font_sizes/font_size = 40
 text = "START"
 
 [node name="Control" type="Control" parent="UI/Top Menu/HBoxContainer"]
@@ -281,56 +334,162 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="UI/Top Menu/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/Top Menu/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_y6deb")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/Top Menu/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 mouse_filter = 2
 
-[node name="SilverwaveButton" type="Button" parent="UI/Top Menu/HBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(80, 0)
+[node name="SilverwaveButton" type="Button" parent="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 mouse_filter = 1
+theme = ExtResource("5_y6deb")
 text = "Silverware
 Dispenser"
+script = ExtResource("6_2wyq8")
 
-[node name="IceButton" type="Button" parent="UI/Top Menu/HBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(80, 0)
+[node name="SilverwareTowerPrice" parent="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2/SilverwaveButton" instance=ExtResource("3_jscy8")]
+unique_name_in_owner = true
+layout_mode = 1
+text = "$20"
+price = 20
+
+[node name="IceButton" type="Button" parent="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 mouse_filter = 1
+theme = ExtResource("5_y6deb")
 text = "Ice
 Machine"
+script = ExtResource("6_2wyq8")
 
-[node name="StoveButton" type="Button" parent="UI/Top Menu/HBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(80, 0)
+[node name="IceTowerPrice" parent="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2/IceButton" instance=ExtResource("3_jscy8")]
+unique_name_in_owner = true
+layout_mode = 1
+text = "$30"
+price = 30
+
+[node name="StoveButton" type="Button" parent="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 mouse_filter = 1
-text = "Stove"
+theme = ExtResource("5_y6deb")
+text = "Stove
+"
+script = ExtResource("6_2wyq8")
 
-[node name="SinkButton" type="Button" parent="UI/Top Menu/HBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(80, 0)
+[node name="StoveTowerPrice" parent="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2/StoveButton" instance=ExtResource("3_jscy8")]
+unique_name_in_owner = true
+layout_mode = 1
+text = "$40"
+price = 40
+
+[node name="SinkButton" type="Button" parent="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 mouse_filter = 1
+theme = ExtResource("5_y6deb")
 text = "Garbage
 Disposal"
+script = ExtResource("6_2wyq8")
 
-[node name="ChefButton" type="Button" parent="UI/Top Menu/HBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(80, 0)
+[node name="SinkTowerPrice" parent="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2/SinkButton" instance=ExtResource("3_jscy8")]
+unique_name_in_owner = true
+layout_mode = 1
+text = "$50"
+price = 50
+
+[node name="ChefButton" type="Button" parent="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 mouse_filter = 1
+theme = ExtResource("5_y6deb")
 text = "Chef"
+script = ExtResource("6_2wyq8")
+
+[node name="ChefTowerPrice" parent="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2/ChefButton" instance=ExtResource("3_jscy8")]
+unique_name_in_owner = true
+layout_mode = 1
+text = "$75"
+price = 75
 
 [node name="SideMenu" type="PanelContainer" parent="UI"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 14.0
-offset_top = 139.0
-offset_right = 232.0
-offset_bottom = -111.0
-grow_vertical = 2
+offset_left = 13.0
+offset_top = 145.0
+offset_right = 240.0
+offset_bottom = 952.0
 theme = ExtResource("3_trceg")
 script = ExtResource("4_a8y0u")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/SideMenu"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme = SubResource("Theme_muem4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/SideMenu/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_jbj1t")
+
+[node name="UpgradeMenu" type="VBoxContainer" parent="UI/SideMenu/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UI/SideMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Color Menu" type="PanelContainer" parent="UI/SideMenu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme = SubResource("Theme_0ld40")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu"]
+layout_mode = 2
+theme = SubResource("Theme_gqmmt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dp3eg")
+
+[node name="Label3" type="Label" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_pm3ni")
+text = "Color"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_yc10j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dp3eg")
+
+[node name="Icon" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_muem4")]
+layout_mode = 2
+
+[node name="Icon2" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_muem4")]
+layout_mode = 2
+texture = ExtResource("9_y6deb")
+
+[node name="Icon3" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_muem4")]
+layout_mode = 2
+texture = ExtResource("6_yc10j")
+
+[node name="Icon4" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_muem4")]
+layout_mode = 2
+texture = ExtResource("7_jscy8")
+
+[node name="Icon5" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_muem4")]
+layout_mode = 2
+texture = ExtResource("8_pm3ni")
 
 [node name="BurgerDisplay" type="PanelContainer" parent="UI"]
 layout_mode = 1
@@ -629,9 +788,9 @@ unique_name_in_owner = true
 [node name="BurgerIcon" parent="." instance=ExtResource("5_jkv2x")]
 
 [connection signal="gui_input" from="UI" to="." method="OnViewPortGuiInput"]
-[connection signal="gui_input" from="UI/Top Menu" to="." method="onTopMenuGuiInput"]
-[connection signal="pressed" from="UI/Top Menu/HBoxContainer/HBoxContainer2/SilverwaveButton" to="." method="onSilverwareButtonPressed"]
-[connection signal="pressed" from="UI/Top Menu/HBoxContainer/HBoxContainer2/IceButton" to="." method="onIceButtonPressed"]
-[connection signal="pressed" from="UI/Top Menu/HBoxContainer/HBoxContainer2/StoveButton" to="." method="onStoveButtonPressed"]
-[connection signal="pressed" from="UI/Top Menu/HBoxContainer/HBoxContainer2/SinkButton" to="." method="onSinkButtonPressed"]
-[connection signal="pressed" from="UI/Top Menu/HBoxContainer/HBoxContainer2/ChefButton" to="." method="onChefButtonPressed"]
+[connection signal="gui_input" from="UI/Top Menu" to="." method="OnTopMenuGuiInput"]
+[connection signal="pressed" from="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2/SilverwaveButton" to="." method="OnSilverwareButtonPressed"]
+[connection signal="pressed" from="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2/IceButton" to="." method="OnIceButtonPressed"]
+[connection signal="pressed" from="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2/StoveButton" to="." method="OnStoveButtonPressed"]
+[connection signal="pressed" from="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2/SinkButton" to="." method="OnSinkButtonPressed"]
+[connection signal="pressed" from="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2/ChefButton" to="." method="OnChefButtonPressed"]
