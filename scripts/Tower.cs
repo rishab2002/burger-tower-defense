@@ -164,32 +164,38 @@ public partial class Tower : Node3D
 
 	public void UpgradeAttackSpeed()
 	{
-		MarkPurchased(upgradeSpeedButton);
         fundsLabel.reduceFunds(upgradeSpeedPrice);
         upgradeSpeedPrice = 0;
+        MarkPurchased(upgradeSpeedButton);
         //TO DO: implement attack speed upgrade
     }
 
 	public void UpgradeRange()
 	{
-        MarkPurchased(upgradeRangeButton);
         fundsLabel.reduceFunds(upgradeRangePrice);
         upgradeRangePrice = 0;
         visibilityRadius.Scale = new Vector3(1.25f, 1.25f, 1.25f);
+        MarkPurchased(upgradeRangeButton);
     }
 
 	public virtual void UpgradeAttackAction()
 	{
-        MarkPurchased(upgradeAttackButton);
         fundsLabel.reduceFunds(upgradeAttackPrice);
         upgradeAttackPrice = 0;
         //TO DO: implement for all children
+        MarkPurchased(upgradeAttackButton);
     }
 
 	private void MarkPurchased(Button button)
 	{
         button.Text = "PURCHASED";
         button.Disabled = true;
+        PriceTag p = button.GetChildOrNull<PriceTag>(0);
+        if (p != null)
+        {
+           p.QueueFree();
+        }
+        
     }
 
 }
