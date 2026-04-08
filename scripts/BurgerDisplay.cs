@@ -1,3 +1,5 @@
+//This script simply links up the textureRect for the burger display to the subViewport with the 3D burger model
+
 using Godot;
 using System;
 

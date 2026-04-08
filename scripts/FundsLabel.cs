@@ -13,7 +13,7 @@ public partial class FundsLabel : Label
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-		setFunds(100);
+		setFunds(1000);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

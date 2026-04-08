@@ -12,7 +12,6 @@ public partial class BurgerIcon : Node
         return subViewport.GetTexture();
     }
 
-    // MAIN FUNCTION
     public void ShowModel(string ModelName)
     {
         this.GetNode<Node3D>($"%{ModelName}").Visible = true;
