@@ -1,12 +1,14 @@
 using Godot;
 using System;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices.Marshalling;
 using static GlobalEnums;
 
 public partial class Enemy : PathFollow3D
 {
 	private EnemyColor color;
+	private EnemyType type;
 	private float startSpeed = 5.0f;
     private int startHealth = 5;
 	private PackedScene _enemyModel;
@@ -17,10 +19,13 @@ public partial class Enemy : PathFollow3D
 	public bool isFrozen { get; private set; }
 
 
-	public void CreateInstance(float startSpeed, int startHealth, EnemyType enemyType)
+
+
+    public void CreateInstance(float startSpeed, int startHealth, EnemyType enemyType)
 	{
 		this.startSpeed = startSpeed;
 		this.startHealth = startHealth;
+		this.type = enemyType;
 		switch(enemyType)
 		{
 			case EnemyType.TopBun:
@@ -43,7 +48,7 @@ public partial class Enemy : PathFollow3D
                 _enemyModel = GD.Load<PackedScene>("res://scenes/patty.tscn");
                 color = EnemyColor.Brown;
                 break;
-			case EnemyType.BottumBun:
+			case EnemyType.BottomBun:
                 _enemyModel = GD.Load<PackedScene>("res://scenes/bottom_bum.tscn");
                 color = EnemyColor.Tan;
                 break;
@@ -62,6 +67,11 @@ public partial class Enemy : PathFollow3D
 	public override void _Process(double delta)
 	{
         Progress += speed * (float)delta;
+        if (Mathf.IsEqualApprox(ProgressRatio, 1.0f))
+        {
+			this.GetParent<EnemyPath>().SignalEnemyCompletedPath(this.type);
+            QueueFree();
+        }
     }
 
 	public Vector2 GetPosition2D()

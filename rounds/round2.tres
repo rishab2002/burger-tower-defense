@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="Round" load_steps=6 format=3 uid="uid://dhssk8pc3yxb2"]
+
+[ext_resource type="Script" uid="uid://djme7b8bxfu07" path="res://scripts/Round.cs" id="1_hsp6j"]
+[ext_resource type="Script" uid="uid://dbch7ph5iut4p" path="res://scripts/Wave.cs" id="2_teuh2"]
+
+[sub_resource type="Resource" id="Resource_hkyi6"]
+script = ExtResource("2_teuh2")
+enemyType = 5
+enemySpeed = 5.0
+enemyHealth = 5
+enemyCount = 3
+timeInterval = 0.5
+metadata/_custom_type_script = "uid://dbch7ph5iut4p"
+
+[sub_resource type="Resource" id="Resource_1pagc"]
+script = ExtResource("2_teuh2")
+enemyType = 4
+enemySpeed = 5.0
+enemyHealth = 5
+enemyCount = 5
+timeInterval = 1.0
+startTime = 2.0
+metadata/_custom_type_script = "uid://dbch7ph5iut4p"
+
+[sub_resource type="Resource" id="Resource_28q5s"]
+script = ExtResource("2_teuh2")
+enemySpeed = 7.0
+enemyHealth = 5
+enemyCount = 10
+timeInterval = 0.3
+startTime = 4.0
+metadata/_custom_type_script = "uid://dbch7ph5iut4p"
+
+[resource]
+script = ExtResource("1_hsp6j")
+waves = Array[Object]([SubResource("Resource_hkyi6"), SubResource("Resource_1pagc"), SubResource("Resource_28q5s")])
+metadata/_custom_type_script = "uid://djme7b8bxfu07"

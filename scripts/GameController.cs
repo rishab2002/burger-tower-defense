@@ -6,6 +6,10 @@ using System.Security.Cryptography.X509Certificates;
 // Main controller responsible for handling tower placement, selection, highlighting, and UI interactions
 public partial class GameController : Node
 {
+    [Export]
+    private RoundCollection roundCollection;
+    private int roundNumber = 0;
+
     // Reference to a UI icon (likely used externally or later)
     [Export] private BurgerIcon burgerIcon;
 
@@ -53,6 +57,14 @@ public partial class GameController : Node
         // Define horizontal planes for ray intersection (floor and counter heights)
         floorPlane = new Plane(Vector3.Up, 0.5f); // Floor at Y = 0.5
         counterPlane = new Plane(Vector3.Up, 1.5f); // Counter at Y = 1.5
+
+
+        foreach (Round round in roundCollection.Rounds)
+        {
+            round.Sort();
+        }
+        this.GetNode<EnemyPath>("%EnemyPath").RoundEnd += OnRoundEnd;
+        this.GetNode<BurgerIcon>("%BurgerIcon").HideAll();
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -341,6 +353,24 @@ public partial class GameController : Node
         this.GetNode<Node3D>("%CounterHighlight").Visible = false;
         this.GetNode<Node3D>("%SinkHighlightA").Visible = false;
         this.GetNode<Node3D>("%SinkHighlightB").Visible = false;
+    }
+
+
+    public void OnStartButtonPressed()
+    {
+        this.GetNode<Godot.Button>("%StartButton").Disabled = true;
+        EnemyPath path = this.GetNode<EnemyPath>("%EnemyPath");
+        if (!path.RoundIsRunning() && roundNumber < roundCollection.Rounds.Count)
+        {
+            path.StartRound(roundCollection.Rounds[roundNumber]);
+            roundNumber++;
+            this.GetNode<Label>("%RoundNumber").Text = "Round " + this.roundNumber.ToString();
+        }
+    }
+
+    public void OnRoundEnd()
+    {
+        this.GetNode<Godot.Button>("%StartButton").Disabled = false;
     }
 
     // Button handlers follow a consistent pattern:

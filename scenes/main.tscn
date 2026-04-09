@@ -1,7 +1,8 @@
-[gd_scene load_steps=77 format=3 uid="uid://ur3tqvv7wswv"]
+[gd_scene load_steps=78 format=3 uid="uid://ur3tqvv7wswv"]
 
 [ext_resource type="Script" uid="uid://s24xph0flbb4" path="res://scripts/GameController.cs" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://fa6dpk7yxn2c" path="res://scenes/kitchen.tscn" id="1_o5qli"]
+[ext_resource type="Resource" uid="uid://d5yh3lax0ic8" path="res://game_modes/normal.tres" id="2_yc10j"]
 [ext_resource type="Script" uid="uid://dgd5lcfacyabs" path="res://scripts/Viewport.cs" id="3_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://b8o2rankutyak" path="res://scenes/price_tag.tscn" id="3_jscy8"]
 [ext_resource type="Material" uid="uid://cpxu3js8br25q" path="res://materials/blue_highlight.tres" id="3_jyhfs"]
@@ -258,6 +259,7 @@ size = Vector2(2, 4)
 
 [node name="GameController" type="Node" node_paths=PackedStringArray("burgerIcon")]
 script = ExtResource("1_eb6dy")
+roundCollection = ExtResource("2_yc10j")
 burgerIcon = NodePath("BurgerIcon")
 
 [node name="UI" type="Control" parent="." node_paths=PackedStringArray("burgerIcon", "textureRect")]
@@ -310,12 +312,14 @@ theme = ExtResource("3_pm3ni")
 text = "$ 1000"
 script = ExtResource("4_og1vs")
 
-[node name="Label3" type="Label" parent="UI/Top Menu/HBoxContainer/HBoxContainer/MarginContainer/CenterContainer/VBoxContainer"]
+[node name="RoundNumber" type="Label" parent="UI/Top Menu/HBoxContainer/HBoxContainer/MarginContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("3_pm3ni")
-text = "Round 1"
+text = "Round"
 
-[node name="Button" type="Button" parent="UI/Top Menu/HBoxContainer/HBoxContainer"]
+[node name="StartButton" type="Button" parent="UI/Top Menu/HBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 mouse_filter = 1
@@ -503,6 +507,7 @@ layout_mode = 2
 [node name="World" type="Node3D" parent="."]
 
 [node name="EnemyPath" type="Path3D" parent="World"]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.6, -0.5)
 curve = SubResource("Curve3D_dp3eg")
 script = ExtResource("15_gqmmt")
@@ -732,9 +737,11 @@ skeleton = NodePath("../../../Kitchen")
 unique_name_in_owner = true
 
 [node name="BurgerIcon" parent="." instance=ExtResource("5_jkv2x")]
+unique_name_in_owner = true
 
 [connection signal="gui_input" from="UI" to="." method="OnViewPortGuiInput"]
 [connection signal="gui_input" from="UI/Top Menu" to="." method="OnTopMenuGuiInput"]
+[connection signal="pressed" from="UI/Top Menu/HBoxContainer/HBoxContainer/StartButton" to="." method="OnStartButtonPressed"]
 [connection signal="pressed" from="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2/SilverwaveButton" to="." method="OnSilverwareButtonPressed"]
 [connection signal="pressed" from="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2/IceButton" to="." method="OnIceButtonPressed"]
 [connection signal="pressed" from="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2/StoveButton" to="." method="OnStoveButtonPressed"]

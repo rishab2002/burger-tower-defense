@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhdjuttmlrr8l"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_ewq1a"]
+script/source = "using Godot;
+using System;
+using static GlobalEnums;
+
+public partial class Round : Node
+{
+    public struct Wave
+    {
+
+    }
+}
+"
+
+[node name="Round" type="Node"]
+script = SubResource("CSharpScript_ewq1a")

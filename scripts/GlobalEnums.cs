@@ -19,6 +19,6 @@ public partial class GlobalEnums
         Lettuce,
         Cheese,
         Patty,
-        BottumBun
+        BottomBun
     }
 }
