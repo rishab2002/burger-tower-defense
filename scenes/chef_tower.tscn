@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b2i4e4xlmliml" path="res://scenes/tower.tscn" id="1_6q8sq"]
 [ext_resource type="PackedScene" uid="uid://kxq8tgfwdcgy" path="res://assets/chef_hat/chef_hat.gltf" id="2_1h35p"]
-[ext_resource type="Script" uid="uid://clcdhn540wa0u" path="res://scenes/ChefTower.cs" id="2_e2nb0"]
+[ext_resource type="Script" uid="uid://clcdhn540wa0u" path="res://scripts/ChefTower.cs" id="2_e2nb0"]
 
 [node name="ChefTower" instance=ExtResource("1_6q8sq")]
 script = ExtResource("2_e2nb0")

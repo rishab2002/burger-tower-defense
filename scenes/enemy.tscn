@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dngjkurf2pjpg"]
+
+[ext_resource type="Script" uid="uid://e7cr4sajymuu" path="res://scripts/Enemy.cs" id="1_7k104"]
+
+[node name="Enemy" type="PathFollow3D"]
+loop = false
+script = ExtResource("1_7k104")

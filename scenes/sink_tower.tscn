@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1xsg2w17lwhs"]
 
 [ext_resource type="PackedScene" uid="uid://b2i4e4xlmliml" path="res://scenes/tower.tscn" id="1_g555r"]
-[ext_resource type="Script" uid="uid://bnn0o8cdjemvf" path="res://scenes/SinkDisplayer.cs" id="2_mn31a"]
-[ext_resource type="Script" uid="uid://b6alhv2eapkxn" path="res://scenes/SinkTower.cs" id="2_qkyqp"]
+[ext_resource type="Script" uid="uid://bnn0o8cdjemvf" path="res://scripts/SinkDisplayer.cs" id="2_mn31a"]
+[ext_resource type="Script" uid="uid://b6alhv2eapkxn" path="res://scripts/SinkTower.cs" id="2_qkyqp"]
 [ext_resource type="PackedScene" uid="uid://c2bl3hli07mjm" path="res://assets/kitchenAssets/gltf/kitchencounter_sink.gltf" id="2_u5afv"]
 [ext_resource type="PackedScene" uid="uid://d4ai5gvv4kod5" path="res://assets/kitchenAssets/gltf/kitchentable_sink.gltf" id="4_qkyqp"]
 

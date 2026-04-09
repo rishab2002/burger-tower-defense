@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgh4cqf3g2jib"]
 
 [ext_resource type="PackedScene" uid="uid://b2i4e4xlmliml" path="res://scenes/tower.tscn" id="1_kkqcm"]
-[ext_resource type="Script" uid="uid://b0i2sm6gdl54d" path="res://scenes/StoveTower.cs" id="2_c7pov"]
+[ext_resource type="Script" uid="uid://b0i2sm6gdl54d" path="res://scripts/StoveTower.cs" id="2_c7pov"]
 [ext_resource type="PackedScene" uid="uid://digutkw1lykle" path="res://assets/kitchenAssets/gltf/stove_single_countertop.gltf" id="2_kkqcm"]
 
 [node name="StoveTower" instance=ExtResource("1_kkqcm")]

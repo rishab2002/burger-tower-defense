@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Round" load_steps=4 format=3 uid="uid://5it08a4v6is7"]
+
+[ext_resource type="Script" uid="uid://djme7b8bxfu07" path="res://scripts/Round.cs" id="1_nhkh7"]
+[ext_resource type="Script" uid="uid://dbch7ph5iut4p" path="res://scripts/Wave.cs" id="2_ravmu"]
+
+[sub_resource type="Resource" id="Resource_hkyi6"]
+script = ExtResource("2_ravmu")
+enemyType = 1
+enemySpeed = 20.0
+enemyHealth = 5
+enemyCount = 3
+timeInterval = 0.5
+metadata/_custom_type_script = "uid://dbch7ph5iut4p"
+
+[resource]
+script = ExtResource("1_nhkh7")
+waves = Array[Object]([SubResource("Resource_hkyi6")])
+metadata/_custom_type_script = "uid://djme7b8bxfu07"

@@ -1,15 +1,6 @@
-[gd_scene load_steps=10 format=4 uid="uid://c8phhuv116mqa"]
+[gd_scene load_steps=6 format=4 uid="uid://c8phhuv116mqa"]
 
-[ext_resource type="Texture2D" uid="uid://cpcf0eyddsgp" path="res://assets/Burger/Unreal Textures/burger_low_Material.001_BaseColor.png" id="1_m5p4s"]
-[ext_resource type="Texture2D" uid="uid://bi538ya3f20mt" path="res://assets/Burger/Unreal Textures/burger_low_Material.001_Normal.png" id="2_362f4"]
-[ext_resource type="Texture2D" uid="uid://da7bar7cvxnla" path="res://assets/Burger/Unreal Textures/burger_low_Material.001_OcclusionRoughnessMetallic.png" id="3_nd1ge"]
 [ext_resource type="Material" uid="uid://5hmcl4dkqw8" path="res://materials/burger.tres" id="4_s3jb3"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7kf0"]
-albedo_texture = ExtResource("1_m5p4s")
-metallic = 1.0
-metallic_texture = ExtResource("2_362f4")
-roughness_texture = ExtResource("3_nd1ge")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_h5ewk"]
 _surfaces = [{
@@ -85,6 +76,6 @@ shadow_mesh = SubResource("ArrayMesh_i5cwd")
 
 [node name="Tomato_low" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 0.528, 0, 0, 0, 0.4, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_c7kf0")
+material_override = ExtResource("4_s3jb3")
 mesh = SubResource("ArrayMesh_qstqu")
 skeleton = NodePath("")

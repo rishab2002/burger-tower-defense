@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8o2rankutyak"]
 
 [ext_resource type="FontFile" uid="uid://xu75dm4blpnm" path="res://fonts/JotiOne-Regular.ttf" id="1_utgwe"]
-[ext_resource type="Script" uid="uid://b66riqn3pwlq4" path="res://scenes/PriceTag.cs" id="2_h3uy6"]
+[ext_resource type="Script" uid="uid://b66riqn3pwlq4" path="res://scripts/PriceTag.cs" id="2_h3uy6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utgwe"]
 bg_color = Color(0, 0.6107958, 0.3125577, 1)

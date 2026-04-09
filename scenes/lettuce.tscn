@@ -1,15 +1,6 @@
-[gd_scene load_steps=14 format=4 uid="uid://deltl7uat2fka"]
+[gd_scene load_steps=10 format=4 uid="uid://deltl7uat2fka"]
 
-[ext_resource type="Texture2D" uid="uid://cpcf0eyddsgp" path="res://assets/Burger/Unreal Textures/burger_low_Material.001_BaseColor.png" id="1_hew5g"]
-[ext_resource type="Texture2D" uid="uid://bi538ya3f20mt" path="res://assets/Burger/Unreal Textures/burger_low_Material.001_Normal.png" id="2_5eot2"]
-[ext_resource type="Texture2D" uid="uid://da7bar7cvxnla" path="res://assets/Burger/Unreal Textures/burger_low_Material.001_OcclusionRoughnessMetallic.png" id="3_kbxh7"]
 [ext_resource type="Material" uid="uid://5hmcl4dkqw8" path="res://materials/burger.tres" id="4_h2x27"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6vqsk"]
-albedo_texture = ExtResource("1_hew5g")
-metallic = 1.0
-metallic_texture = ExtResource("2_5eot2")
-roughness_texture = ExtResource("3_kbxh7")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_wqkhx"]
 _surfaces = [{
@@ -157,6 +148,6 @@ shadow_mesh = SubResource("ArrayMesh_6obhk")
 
 [node name="Lettuce_low_001" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_6vqsk")
+material_override = ExtResource("4_h2x27")
 mesh = SubResource("ArrayMesh_rfcco")
 skeleton = NodePath("")

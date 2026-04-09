@@ -1,18 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://bph26y5a13yer"]
+[gd_scene load_steps=10 format=3 uid="uid://bph26y5a13yer"]
 
 [ext_resource type="PackedScene" uid="uid://brwe257nnffsv" path="res://scenes/bottom_bum.tscn" id="1_2nkj3"]
 [ext_resource type="Script" uid="uid://ckwfkx3ro2a7c" path="res://scripts/BurgerIcon.cs" id="1_lgumy"]
 [ext_resource type="PackedScene" uid="uid://c0crt7drkues5" path="res://scenes/cheese.tscn" id="2_f86x1"]
+[ext_resource type="Material" uid="uid://dme2x4hok0cul" path="res://materials/black.tres" id="2_lcjix"]
+[ext_resource type="Material" uid="uid://5hmcl4dkqw8" path="res://materials/burger.tres" id="3_jc32e"]
 [ext_resource type="PackedScene" uid="uid://deltl7uat2fka" path="res://scenes/lettuce.tscn" id="3_wgk86"]
 [ext_resource type="PackedScene" uid="uid://bqba06tt6sq3r" path="res://scenes/patty.tscn" id="4_d18yk"]
 [ext_resource type="PackedScene" uid="uid://bia8v4qycxwr7" path="res://scenes/top_bun.tscn" id="5_2xyfs"]
 [ext_resource type="PackedScene" uid="uid://c8phhuv116mqa" path="res://scenes/tomato.tscn" id="6_cx8o4"]
 
-[node name="Node" type="Node" node_paths=PackedStringArray("subViewport", "modelContainer", "camera")]
+[node name="Node" type="Node" node_paths=PackedStringArray("subViewport", "modelContainer", "camera", "bottomBun", "cheese", "lettuce", "patty", "topBun", "tomato1", "tomato2")]
 script = ExtResource("1_lgumy")
 subViewport = NodePath("SubViewport")
 modelContainer = NodePath("SubViewport/ModelCollection")
 camera = NodePath("SubViewport/Camera3D")
+bottomBun = NodePath("SubViewport/ModelCollection/BottomBun")
+cheese = NodePath("SubViewport/ModelCollection/Cheese")
+lettuce = NodePath("SubViewport/ModelCollection/Lettuce")
+patty = NodePath("SubViewport/ModelCollection/Patty")
+topBun = NodePath("SubViewport/ModelCollection/TopBun")
+tomato1 = NodePath("SubViewport/ModelCollection/Tomato1")
+tomato2 = NodePath("SubViewport/ModelCollection/Tomato2")
+black = ExtResource("2_lcjix")
+colored = ExtResource("3_jc32e")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 own_world_3d = true
@@ -41,7 +52,7 @@ sky_mode = 1
 [node name="ModelCollection" type="Node3D" parent="SubViewport"]
 unique_name_in_owner = true
 
-[node name="BottomBum" parent="SubViewport/ModelCollection" instance=ExtResource("1_2nkj3")]
+[node name="BottomBun" parent="SubViewport/ModelCollection" instance=ExtResource("1_2nkj3")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021318346, 0)
 
