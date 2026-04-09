@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using static GlobalEnums;
 
@@ -9,6 +10,11 @@ public partial class EnemyPath : Path3D
     private Round currentRound = null;
 	private float roundTime = 0;
 	private int indexOfNextWave = 0;
+	private List<EnemyType> remainingEnemyTypes = [EnemyType.BottomBun, EnemyType.Patty, EnemyType.Cheese, EnemyType.Lettuce, EnemyType.Tomato, EnemyType.Tomato, EnemyType.TopBun];
+
+
+	[Signal]
+	public delegate void GameOverEventHandler();
 
     [Signal]
     public delegate void RoundEndEventHandler();
@@ -41,7 +47,6 @@ public partial class EnemyPath : Path3D
                     indexOfNextWave++;
                 }
             }
-	
         }
 	}
 
@@ -59,9 +64,14 @@ public partial class EnemyPath : Path3D
 		EmitSignal(SignalName.RoundEnd);
 	}
 
-	public void SignalEnemyCompletedPath(EnemyType type)
+	public void EnemyCompletePath(EnemyType type)
 	{
         EmitSignal(SignalName.EnemyReachEnd, (int)type);
+		remainingEnemyTypes.Remove(type);
+		if (remainingEnemyTypes.Count == 0 )
+		{
+			EmitSignal(SignalName.GameOver);
+		}
     }
 
 	public bool RoundIsRunning()
@@ -72,13 +82,19 @@ public partial class EnemyPath : Path3D
 	public void AddEnemy(float speed, int health, EnemyType type)
 	{
 		Enemy enemy = (Enemy)_enemy.Instantiate();
-		enemy.CreateInstance(speed, health, type);
+		enemy.Initialize(speed, health, type);
 		this.AddChild(enemy);
 	}
 
 	public void BeginWave(Wave wave)
 	{
-		int remainingEnemies = wave.enemyCount;
+		// if the wave's enemy types has already complete the path, choose one at random instead
+        if (!remainingEnemyTypes.Contains(wave.enemyType) && remainingEnemyTypes.Count != 0)
+        {
+            wave.enemyType = remainingEnemyTypes[Random.Shared.Next(remainingEnemyTypes.Count)];
+        }
+
+        int remainingEnemies = wave.enemyCount;
         Timer timer = new Timer();
         AddChild(timer);
         timer.WaitTime = wave.timeInterval; 
@@ -94,6 +110,7 @@ public partial class EnemyPath : Path3D
 				timer.Stop();
 				timer.QueueFree();
 			}
+
 			AddEnemy(wave.enemySpeed, wave.enemyHealth, wave.enemyType);
         }
     }

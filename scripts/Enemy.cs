@@ -21,7 +21,7 @@ public partial class Enemy : PathFollow3D
 
 
 
-    public void CreateInstance(float startSpeed, int startHealth, EnemyType enemyType)
+    public void Initialize(float startSpeed, int startHealth, EnemyType enemyType)
 	{
 		this.startSpeed = startSpeed;
 		this.startHealth = startHealth;
@@ -69,7 +69,7 @@ public partial class Enemy : PathFollow3D
         Progress += speed * (float)delta;
         if (Mathf.IsEqualApprox(ProgressRatio, 1.0f))
         {
-			this.GetParent<EnemyPath>().SignalEnemyCompletedPath(this.type);
+			this.GetParent<EnemyPath>().EnemyCompletePath(this.type);
             QueueFree();
         }
     }

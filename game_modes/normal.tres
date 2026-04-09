@@ -6,5 +6,5 @@
 
 [resource]
 script = ExtResource("1_4jwsy")
-Rounds = Array[Object]([ExtResource("1_sgmcq"), ExtResource("2_bklrq"), ExtResource("1_sgmcq")])
+Rounds = Array[Object]([ExtResource("1_sgmcq"), ExtResource("1_sgmcq"), ExtResource("2_bklrq"), ExtResource("1_sgmcq"), ExtResource("1_sgmcq"), ExtResource("1_sgmcq")])
 metadata/_custom_type_script = "uid://d1pnjqelxtrm4"
