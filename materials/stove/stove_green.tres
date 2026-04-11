@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bv1nelqif44c0"]
+
+[ext_resource type="Texture2D" uid="uid://jxkbmxjypim6" path="res://images/stove_green.png" id="1_jimqv"]
+
+[resource]
+resource_name = "restaurant"
+albedo_texture = ExtResource("1_jimqv")
+roughness = 0.5

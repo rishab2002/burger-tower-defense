@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cqlppq5du0be3"]
+
+[ext_resource type="Texture2D" uid="uid://bva3yjjj3fi73" path="res://assets/ice_cream_machine/textures/Screws_baseColor.png" id="1_jcmmf"]
+
+[resource]
+resource_name = "Screws"
+cull_mode = 2
+albedo_texture = ExtResource("1_jcmmf")
+roughness = 0.6

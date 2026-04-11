@@ -1,16 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgh4cqf3g2jib"]
+[gd_scene load_steps=9 format=3 uid="uid://cgh4cqf3g2jib"]
 
 [ext_resource type="PackedScene" uid="uid://b2i4e4xlmliml" path="res://scenes/tower.tscn" id="1_kkqcm"]
 [ext_resource type="Script" uid="uid://b0i2sm6gdl54d" path="res://scripts/StoveTower.cs" id="2_c7pov"]
 [ext_resource type="PackedScene" uid="uid://digutkw1lykle" path="res://assets/kitchenAssets/gltf/stove_single_countertop.gltf" id="2_kkqcm"]
+[ext_resource type="Material" uid="uid://bpc6x5ah6pupu" path="res://materials/stove/stove_red.tres" id="3_ybits"]
+[ext_resource type="Material" uid="uid://bv1nelqif44c0" path="res://materials/stove/stove_green.tres" id="4_6uc3h"]
+[ext_resource type="Material" uid="uid://dfu31xvwacd4h" path="res://materials/stove/stove_yellow.tres" id="5_xor1c"]
+[ext_resource type="Material" uid="uid://bpc2cbt0gkvkg" path="res://materials/stove/stove_brown.tres" id="6_ywvlj"]
+[ext_resource type="Material" uid="uid://do1t3fk4h4rx6" path="res://materials/stove/stove_tan.tres" id="7_xx0a6"]
 
-[node name="StoveTower" instance=ExtResource("1_kkqcm")]
+[node name="StoveTower" node_paths=PackedStringArray("towerModel") instance=ExtResource("1_kkqcm")]
 script = ExtResource("2_c7pov")
+towerModel = NodePath("model")
+colorMaterials = Array[Material]([ExtResource("3_ybits"), ExtResource("4_6uc3h"), ExtResource("5_xor1c"), ExtResource("6_ywvlj"), ExtResource("7_xx0a6")])
 
 [node name="visibility" parent="." index="0"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1, 0)
 
-[node name="stove_single_countertop2" parent="." index="1" instance=ExtResource("2_kkqcm")]
+[node name="model" parent="." index="1" instance=ExtResource("2_kkqcm")]
 
 [node name="Light" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

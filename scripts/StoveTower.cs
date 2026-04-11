@@ -7,6 +7,9 @@ public partial class StoveTower : Tower
 	public override void _Ready()
 	{
 		base._Ready();
+        base.towerColor = GlobalEnums.EnemyColor.Red;
+        base.footprint = 2;
+        base.isOnCounter = true;
 	}
 
     protected override void ConstructMenu()

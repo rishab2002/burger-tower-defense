@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ccgam0ljev8hi"]
+
+[ext_resource type="Texture2D" uid="uid://bxdbnvd00sx86" path="res://images/sink_brown.png" id="1_dju7m"]
+
+[resource]
+resource_name = "restaurant"
+albedo_texture = ExtResource("1_dju7m")
+roughness = 0.5

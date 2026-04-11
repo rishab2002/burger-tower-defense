@@ -5,11 +5,11 @@ public partial class GlobalEnums
 {
     public enum EnemyColor
     {
-        Red,
-        Green,
-        Yellow,
-        Brown,
-        Tan
+        Red = 0,
+        Green = 1,
+        Yellow = 2,
+        Brown = 3,
+        Tan = 4
     }
 
     public enum EnemyType

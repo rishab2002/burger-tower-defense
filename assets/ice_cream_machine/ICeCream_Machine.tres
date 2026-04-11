@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b2ionnchp5yin"]
+
+[ext_resource type="Texture2D" uid="uid://l2ha08p7c0xi" path="res://assets/ice_cream_machine/textures/ICeCream_Machine_baseColor.png" id="1_py583"]
+
+[resource]
+resource_name = "ICeCream_Machine"
+cull_mode = 2
+albedo_texture = ExtResource("1_py583")
+roughness = 0.92074835

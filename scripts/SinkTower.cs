@@ -3,10 +3,22 @@ using System;
 
 public partial class SinkTower : Tower
 {
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+    [Export]
+    private Node3D metalicModel;
+
+    [Export]
+    private Node3D nonMetalicModel;
+
+
+
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
 	{
 		base._Ready();
+        base.towerColor = GlobalEnums.EnemyColor.Brown;
+        this.UpdateAppearance();
+        base.footprint = 2;
+        base.isOnCounter = true;
 	}
 
     protected override void ConstructMenu()
@@ -24,4 +36,10 @@ public partial class SinkTower : Tower
 	{
         base._Process(delta);
 	}
+
+    public override void UpdateAppearance()
+    {
+        metalicModel.GetChild<MeshInstance3D>(0).MaterialOverride = colorMaterials[(int)this.towerColor];
+        nonMetalicModel.GetChild<MeshInstance3D>(0).MaterialOverride = colorMaterials[(int)this.towerColor];
+    }
 }
