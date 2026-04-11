@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://g2d7kea6yvbh"]
+
+[ext_resource type="Texture2D" uid="uid://b8k7p62qn6gcw" path="res://images/silverware_yellow.png" id="1_peshd"]
+[ext_resource type="Texture2D" uid="uid://gey7w60djf7d" path="res://assets/simple_turret/textures/Scene_-_Root_metallicRoughness.png" id="2_n1ada"]
+[ext_resource type="Texture2D" uid="uid://bnatgdvbbuvug" path="res://assets/simple_turret/textures/Scene_-_Root_normal.png" id="3_akb13"]
+
+[resource]
+resource_name = "Scene_-_Root"
+cull_mode = 2
+albedo_texture = ExtResource("1_peshd")
+metallic = 1.0
+metallic_texture = ExtResource("2_n1ada")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_n1ada")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_akb13")

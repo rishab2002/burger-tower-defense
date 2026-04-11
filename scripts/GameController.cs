@@ -1,7 +1,9 @@
 using Godot;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using static GlobalEnums;
 
 // Main controller responsible for handling tower placement, selection, highlighting, and UI interactions
 public partial class GameController : Node
@@ -27,7 +29,7 @@ public partial class GameController : Node
     private Button pressedButton;              // Tracks which button is currently selected
     private Camera3D camera;                  // Camera used for raycasting from mouse
     private Plane floorPlane;                 // Plane representing floor placement area
-    private Plane counterPlane;               // Plane representing countertop placement area
+    private Plane counterPlane;               // Plane representing placementArea placement area
 
     // Preloaded scenes for each tower type
     private PackedScene _silverwareTower = GD.Load<PackedScene>("res://scenes/silverware_tower.tscn");
@@ -42,8 +44,7 @@ public partial class GameController : Node
     private bool placementIsValid = false;    // Whether current preview position is valid
 
     // Lists of placed towers for each surface type
-    private List<Tower> floorTowerList = new List<Tower>();
-    private List<Tower> counterTowerList = new List<Tower>();
+    private List<Tower> towerList = new List<Tower>();
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -92,72 +93,63 @@ public partial class GameController : Node
     private void DisplayTowerHighlight()
     {
         // Check floor towers first
-        Vector3? intersection = GetMouseIntersection(floorPlane);
-        if (intersection != null)
+        Vector3? floorIntersection = GetMouseIntersection(floorPlane);
+        Vector3? counterIntersection = GetMouseIntersection(counterPlane);
+
+        if (floorIntersection == null || counterIntersection == null)
         {
-            Vector3 pos = intersection.Value;
+            return;
+        }
 
-            // Convert to 2D grid coordinates (XZ plane)
-            Vector2 pos2D = new Vector2(pos.X, pos.Z);
+        Vector3 floorPos = floorIntersection.Value;
+        Vector2 floorPos2D = new Vector2(floorPos.X, floorPos.Z);
 
-            foreach (Tower tower in floorTowerList)
+        Vector3 counterPos = counterIntersection.Value;
+        Vector2 counterPos2D = new Vector2(counterPos.X, counterPos.Z);
+
+        foreach (Tower tower in towerList)
+        {
+            Vector2 towerPos2D = new Vector2(tower.Position.X, tower.Position.Z);
+
+            Vector2 pos2D;
+
+            if (tower.isOnCounter)
             {
-                Vector2 towerPos2D = new Vector2(tower.Position.X, tower.Position.Z);
+                pos2D = counterPos2D;
+            }
+            else
+            {
+                pos2D = floorPos2D;
+            }
 
-                // Compare floored positions to detect same grid tile
-                if (towerPos2D.Floor() == pos2D.Floor() && tower != selectedTower)
+            Vector2 difference = towerPos2D - pos2D;
+
+            float checkDistance = 0.5f;
+            if (tower.footprint == 2)
+            {
+                checkDistance = 0.8f;
+            }
+
+            // Highlight if cursor is within ~0.8 units
+            if (Mathf.Abs(difference.X) <= checkDistance && Mathf.Abs(difference.Y) <= checkDistance && tower != selectedTower)
+            {
+                tower.Highlight();
+
+                if (highlightedTower != null && highlightedTower != tower)
                 {
-                    tower.Highlight();
-
-                    // Ensure only one tower is highlighted at a time
-                    if (highlightedTower != null && highlightedTower != tower)
-                    {
-                        highlightedTower.UnHighlight();
-                    }
-
-                    highlightedTower = tower;
+                    highlightedTower.UnHighlight();
                 }
-                else if (tower == highlightedTower)
-                {
-                    // Remove highlight if no longer under cursor
-                    tower.UnHighlight();
-                    highlightedTower = null;
 
-                }
+                highlightedTower = tower;
+            }
+            else if (tower == highlightedTower)
+            {
+                tower.UnHighlight();
+                highlightedTower = null;
             }
         }
 
-        // Check counter towers with a tolerance instead of strict grid matching
-        intersection = GetMouseIntersection(counterPlane);
-        if (intersection != null)
-        {
-            Vector3 pos = intersection.Value;
-            Vector2 pos2D = new Vector2(pos.X, pos.Z);
 
-            foreach (Tower tower in counterTowerList)
-            {
-                Vector2 towerPos2D = new Vector2(tower.Position.X, tower.Position.Z);
-                Vector2 difference = towerPos2D - pos2D;
-
-                // Highlight if cursor is within ~0.8 units
-                if (Mathf.Abs(difference.X) <= 0.8 && Mathf.Abs(difference.Y) <= 0.8 && tower != selectedTower)
-                {
-                    tower.Highlight();
-
-                    if (highlightedTower != null && highlightedTower != tower)
-                    {
-                        highlightedTower.UnHighlight();
-                    }
-
-                    highlightedTower = tower;
-                }
-                else if (tower == highlightedTower)
-                {
-                    tower.UnHighlight();
-                    highlightedTower = null;
-                }
-            }
-        }
     }
 
     // Selects the currently highlighted tower
@@ -216,25 +208,35 @@ public partial class GameController : Node
         }
     }
 
-    // Handles preview placement for stove (2x2 footprint on counters)
-    private void DisplayStoveTower()
+    // Handles preview placement for stove and silverware dispenser (2x2 footprint on counters)
+    private void Display2x2Tower(Plane plane)
     {
-        Vector3? intersection = GetMouseIntersection(counterPlane);
+        Vector3? intersection = GetMouseIntersection(plane);
 
         if (intersection != null)
         {
             Vector3 towerPos = intersection.Value;
             Vector2 towerPos2D = new Vector2(towerPos.X, towerPos.Z);
 
-            HighlightArea countertop = this.GetNode<HighlightArea>("%CounterHighlight");
+            HighlightArea placementArea;
 
-            if (countertop.IsInside(towerPos2D))
+            if (plane == floorPlane)
+            {
+                placementArea = this.GetNode<HighlightArea>("%FloorHighlight");
+            }
+            else
+            {
+                placementArea = this.GetNode<HighlightArea>("%CounterHighlight");
+            }
+            
+
+            if (placementArea.IsInside(towerPos2D))
             {
                 // Check all 4 possible orientations for 2x2 placement
 
-                if (countertop.IsInside(towerPos2D + new Vector2(1f, 1f)) &&
-                    countertop.IsInside(towerPos2D + new Vector2(1f, 0f)) &&
-                    countertop.IsInside(towerPos2D + new Vector2(0f, 1f)))
+                if (placementArea.IsInside(towerPos2D + new Vector2(1f, 1f)) &&
+                    placementArea.IsInside(towerPos2D + new Vector2(1f, 0f)) &&
+                    placementArea.IsInside(towerPos2D + new Vector2(0f, 1f)))
                 {
                     placementIsValid = true;
                     towerPos.X = Mathf.Floor(towerPos.X) + 1f;
@@ -242,9 +244,9 @@ public partial class GameController : Node
                     towerPos.Y = 0.5f;
                     newTower.Position = towerPos;
                 }
-                else if (countertop.IsInside(towerPos2D + new Vector2(1f, -1f)) &&
-                    countertop.IsInside(towerPos2D + new Vector2(1f, 0f)) &&
-                    countertop.IsInside(towerPos2D + new Vector2(0f, -1f)))
+                else if (placementArea.IsInside(towerPos2D + new Vector2(1f, -1f)) &&
+                    placementArea.IsInside(towerPos2D + new Vector2(1f, 0f)) &&
+                    placementArea.IsInside(towerPos2D + new Vector2(0f, -1f)))
                 {
                     placementIsValid = true;
                     towerPos.X = Mathf.Floor(towerPos.X) + 1f;
@@ -252,9 +254,9 @@ public partial class GameController : Node
                     towerPos.Y = 0.5f;
                     newTower.Position = towerPos;
                 }
-                else if (countertop.IsInside(towerPos2D + new Vector2(-1f, 1f)) &&
-                    countertop.IsInside(towerPos2D + new Vector2(-1f, 0f)) &&
-                    countertop.IsInside(towerPos2D + new Vector2(0f, 1f)))
+                else if (placementArea.IsInside(towerPos2D + new Vector2(-1f, 1f)) &&
+                    placementArea.IsInside(towerPos2D + new Vector2(-1f, 0f)) &&
+                    placementArea.IsInside(towerPos2D + new Vector2(0f, 1f)))
                 {
                     placementIsValid = true;
                     towerPos.X = Mathf.Floor(towerPos.X);
@@ -262,9 +264,9 @@ public partial class GameController : Node
                     towerPos.Y = 0.5f;
                     newTower.Position = towerPos;
                 }
-                else if (countertop.IsInside(towerPos2D + new Vector2(-1f, -1f)) &&
-                    countertop.IsInside(towerPos2D + new Vector2(-1f, 0f)) &&
-                    countertop.IsInside(towerPos2D + new Vector2(0f, -1f)))
+                else if (placementArea.IsInside(towerPos2D + new Vector2(-1f, -1f)) &&
+                    placementArea.IsInside(towerPos2D + new Vector2(-1f, 0f)) &&
+                    placementArea.IsInside(towerPos2D + new Vector2(0f, -1f)))
                 {
                     placementIsValid = true;
                     towerPos.X = Mathf.Floor(towerPos.X);
@@ -515,13 +517,16 @@ public partial class GameController : Node
             // Update preview or highlighting depending on mode
             switch (pressedButton)
             {
-                case Button.Chef:
                 case Button.Silverware:
+                    Display2x2Tower(floorPlane);
+                    break;
+                case Button.Chef:
+                
                 case Button.Ice:
                     DisplayTowerOnFloor();
                     break;
                 case Button.Stove:
-                    DisplayStoveTower();
+                    Display2x2Tower(counterPlane);
                     break;
                 case Button.Sink:
                     DisplaySinkTower();
@@ -541,12 +546,14 @@ public partial class GameController : Node
                     newTower.HideRange();
                 }
 
+                towerList.Add(newTower);   
+
                 switch (pressedButton)
                 {
                     case Button.Chef:
                     case Button.Silverware:
                     case Button.Ice:
-                        floorTowerList.Add(newTower);
+                        
 
                         // Mark tile as occupied
                         this.GetNode<HighlightArea>("%FloorHighlight").SetOccupied(new Vector2(newTower.Position.X, newTower.Position.Z));
@@ -554,7 +561,7 @@ public partial class GameController : Node
 
                     case Button.Stove:
                     case Button.Sink:
-                        counterTowerList.Add(newTower);
+                        
 
                         // Mark all 4 tiles of the 2x2 structure as occupied
                         HighlightArea counter1 = this.GetNode<HighlightArea>("%CounterHighlight");
@@ -636,6 +643,17 @@ public partial class GameController : Node
 
                 SelectTower();
             }
+        }
+    }
+
+
+    public void OnColorPressed (int colorInt)
+    {
+        EnemyColor color = (EnemyColor)colorInt;
+        if (selectedTower != null && selectedTower.towerColor != color)
+        {
+            selectedTower.towerColor = color;
+            selectedTower.UpdateAppearance();
         }
     }
 }

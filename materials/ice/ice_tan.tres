@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ccgngh4piopkr"]
+
+[ext_resource type="Texture2D" uid="uid://dec132rcfmiee" path="res://images/ice_tan.png" id="1_mjovk"]
+
+[resource]
+resource_name = "ICeCream_Machine"
+cull_mode = 2
+albedo_texture = ExtResource("1_mjovk")
+roughness = 0.92074835

@@ -7,6 +7,10 @@ public partial class IceTower : Tower
 	public override void _Ready()
 	{
 		base._Ready();
+        base.towerColor = GlobalEnums.EnemyColor.Yellow;
+        this.UpdateAppearance();
+        base.footprint = 1;
+        base.isOnCounter = false;
 	}
 
     protected override void ConstructMenu()

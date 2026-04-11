@@ -1,13 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1xsg2w17lwhs"]
+[gd_scene load_steps=11 format=3 uid="uid://c1xsg2w17lwhs"]
 
 [ext_resource type="PackedScene" uid="uid://b2i4e4xlmliml" path="res://scenes/tower.tscn" id="1_g555r"]
 [ext_resource type="Script" uid="uid://bnn0o8cdjemvf" path="res://scripts/SinkDisplayer.cs" id="2_mn31a"]
 [ext_resource type="Script" uid="uid://b6alhv2eapkxn" path="res://scripts/SinkTower.cs" id="2_qkyqp"]
 [ext_resource type="PackedScene" uid="uid://c2bl3hli07mjm" path="res://assets/kitchenAssets/gltf/kitchencounter_sink.gltf" id="2_u5afv"]
+[ext_resource type="Material" uid="uid://b3e7dfxm0jvoo" path="res://materials/sink/sink_red.tres" id="3_3hg21"]
+[ext_resource type="Material" uid="uid://bnqg611sn7yos" path="res://materials/sink/sink_green.tres" id="4_os3rk"]
 [ext_resource type="PackedScene" uid="uid://d4ai5gvv4kod5" path="res://assets/kitchenAssets/gltf/kitchentable_sink.gltf" id="4_qkyqp"]
+[ext_resource type="Material" uid="uid://diba71ydjg0nd" path="res://materials/sink/sink_yellow.tres" id="5_ppgts"]
+[ext_resource type="Material" uid="uid://ccgam0ljev8hi" path="res://materials/sink/sink_brown.tres" id="6_oknca"]
+[ext_resource type="Material" uid="uid://cao40oay1h2at" path="res://materials/sink/sink_tan.tres" id="7_yujmb"]
 
-[node name="SinkTower" instance=ExtResource("1_g555r")]
+[node name="SinkTower" node_paths=PackedStringArray("metalicModel", "nonMetalicModel") instance=ExtResource("1_g555r")]
 script = ExtResource("2_qkyqp")
+metalicModel = NodePath("SinkDisplayer/metal")
+nonMetalicModel = NodePath("SinkDisplayer/nonmetal")
+colorMaterials = Array[Material]([ExtResource("3_3hg21"), ExtResource("4_os3rk"), ExtResource("5_ppgts"), ExtResource("6_oknca"), ExtResource("7_yujmb")])
 
 [node name="visibility" parent="." index="0"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1, 0)

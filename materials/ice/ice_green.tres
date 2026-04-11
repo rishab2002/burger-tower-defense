@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bl4sdgff73f2a"]
+
+[ext_resource type="Texture2D" uid="uid://dgp2j451wmgc" path="res://images/ice_green.png" id="1_j3x18"]
+
+[resource]
+resource_name = "ICeCream_Machine"
+cull_mode = 2
+albedo_texture = ExtResource("1_j3x18")
+roughness = 0.92074835

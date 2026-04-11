@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices.Marshalling;
 using static Godot.DisplayServer;
+using static GlobalEnums;
 
 public partial class Tower : Node3D
 {
@@ -13,10 +14,22 @@ public partial class Tower : Node3D
 	protected Button upgradeSpeedButton = new Button();
     protected Button upgradeRangeButton = new Button();
     protected Button upgradeAttackButton = new Button();
+    public int footprint { get; protected set; }
+
+    public bool isOnCounter { get; protected set; }
+
+
+    [Export]
+    protected Node3D towerModel;
+
+    [Export]
+    protected Godot.Collections.Array<Material> colorMaterials;
 
     protected int upgradeSpeedPrice = 0;
     protected int upgradeRangePrice = 0;
     protected int upgradeAttackPrice = 0;
+
+    public EnemyColor towerColor { get; set; }
 
     protected PackedScene _priceTag = GD.Load<PackedScene>("res://scenes/price_tag.tscn");
 
@@ -196,6 +209,11 @@ public partial class Tower : Node3D
            p.QueueFree();
         }
         
+    }
+
+    public virtual void UpdateAppearance()
+    {
+        towerModel.GetChild<MeshInstance3D>(0).MaterialOverride = colorMaterials[(int)this.towerColor];
     }
 
 }

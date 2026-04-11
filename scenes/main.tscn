@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://ur3tqvv7wswv"]
+[gd_scene load_steps=79 format=3 uid="uid://ur3tqvv7wswv"]
 
 [ext_resource type="Script" uid="uid://s24xph0flbb4" path="res://scripts/GameController.cs" id="1_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://fa6dpk7yxn2c" path="res://scenes/kitchen.tscn" id="1_o5qli"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ceat0u26sngpp" path="res://images/BottleBrown.png" id="7_jscy8"]
 [ext_resource type="Texture2D" uid="uid://btam62cxdt2bm" path="res://images/BottleWheat.png" id="8_pm3ni"]
 [ext_resource type="Texture2D" uid="uid://bdmmkxpikjom7" path="res://images/BottleGreen.png" id="9_y6deb"]
+[ext_resource type="Script" uid="uid://bp8lrs3l4s6ow" path="res://scenes/ColorMenu.cs" id="11_jscy8"]
 [ext_resource type="PackedScene" uid="uid://bwtajtq5gr685" path="res://scenes/highlight_area.tscn" id="11_ya4ey"]
 [ext_resource type="Script" uid="uid://cdxkuexhsykae" path="res://scripts/SinkPlacementSystem.cs" id="12_eb6dy"]
 [ext_resource type="Script" uid="uid://2xhbrfq2gj5k" path="res://scripts/EnemyPath.cs" id="15_gqmmt"]
@@ -361,7 +362,7 @@ custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("5_y6deb")
-text = "Ice
+text = "Icecream
 Machine"
 script = ExtResource("6_2wyq8")
 
@@ -406,7 +407,8 @@ custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("5_y6deb")
-text = "Chef"
+text = "Chef
+Hat"
 script = ExtResource("6_2wyq8")
 
 [node name="ChefTowerPrice" parent="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2/ChefButton" instance=ExtResource("3_jscy8")]
@@ -447,6 +449,7 @@ size_flags_vertical = 3
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 theme = SubResource("Theme_0ld40")
+script = ExtResource("11_jscy8")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu"]
 layout_mode = 2
@@ -747,3 +750,9 @@ unique_name_in_owner = true
 [connection signal="pressed" from="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2/StoveButton" to="." method="OnStoveButtonPressed"]
 [connection signal="pressed" from="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2/SinkButton" to="." method="OnSinkButtonPressed"]
 [connection signal="pressed" from="UI/Top Menu/HBoxContainer/MarginContainer/HBoxContainer2/ChefButton" to="." method="OnChefButtonPressed"]
+[connection signal="ColorPressed" from="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu" to="." method="OnColorPressed"]
+[connection signal="gui_input" from="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Icon" to="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu" method="OnRedGuiInput"]
+[connection signal="gui_input" from="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Icon2" to="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu" method="OnGreenGuiInput"]
+[connection signal="gui_input" from="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Icon3" to="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu" method="OnYellowGuiInput"]
+[connection signal="gui_input" from="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Icon4" to="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu" method="OnBrownGuiInput"]
+[connection signal="gui_input" from="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Icon5" to="UI/SideMenu/MarginContainer/VBoxContainer/Color Menu" method="OnTanGuiInput"]
